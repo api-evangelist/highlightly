@@ -1,0 +1,169 @@
+aid: highlightly
+url: https://raw.githubusercontent.com/api-evangelist/highlightly/refs/heads/main/apis.yml
+name: Highlightly
+kind: company
+description: Highlightly is a real-time sports data and highlights API covering football,
+  basketball, American football, hockey, baseball, cricket, rugby, volleyball, and
+  handball across 950+ leagues. Its REST APIs serve live scores, matches, standings,
+  team and player statistics, head-to-head records, odds, and on-demand video highlight
+  clips, available directly via highlightly.net hosts or through RapidAPI.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Sports
+- Sports Data
+- Live Scores
+- Odds
+- Highlights
+created: '2026-06-25'
+modified: '2026-06-25'
+specificationVersion: '0.19'
+apis:
+- aid: highlightly:matches-fixtures
+  name: Highlightly Matches & Fixtures API
+  tags:
+  - Matches
+  - Fixtures
+  - Sports
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://highlightly.net/sport-api/documentation/
+  baseURL: https://sports.highlightly.net
+  properties:
+  - url: https://highlightly.net/sport-api/documentation/
+    type: Documentation
+  - url: https://highlightly.net/documentation/football/
+    type: APIReference
+  - url: openapi/highlightly-openapi.yml
+    type: OpenAPI
+  - url: collections/highlightly.postman_collection.json
+    type: PostmanCollection
+  - url: collections/highlightly.opencollection.json
+    type: OpenCollection
+  description: List and retrieve matches and fixtures per sport with filtering by league,
+    date, season, and team, plus per-match lineups, live events, and head-to-head
+    and last-five-games records.
+- aid: highlightly:live-scores
+  name: Highlightly Live Scores API
+  tags:
+  - Live Scores
+  - Real Time
+  - Sports
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://highlightly.net/sport-api/documentation/
+  baseURL: https://sports.highlightly.net
+  properties:
+  - url: https://highlightly.net/sport-api/documentation/
+    type: Documentation
+  - url: https://highlightly.net/documentation/football/
+    type: APIReference
+  - url: openapi/highlightly-openapi.yml
+    type: OpenAPI
+  - url: collections/highlightly.postman_collection.json
+    type: PostmanCollection
+  - url: collections/highlightly.opencollection.json
+    type: OpenCollection
+  description: Real-time match state and live in-game events surfaced through the matches
+    and events endpoints, with timezone-aware filtering by date and league.
+- aid: highlightly:standings
+  name: Highlightly Standings API
+  tags:
+  - Standings
+  - Leagues
+  - Sports
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://highlightly.net/sport-api/documentation/
+  baseURL: https://sports.highlightly.net
+  properties:
+  - url: https://highlightly.net/sport-api/documentation/
+    type: Documentation
+  - url: https://highlightly.net/documentation/football/
+    type: APIReference
+  - url: openapi/highlightly-openapi.yml
+    type: OpenAPI
+  - url: collections/highlightly.postman_collection.json
+    type: PostmanCollection
+  - url: collections/highlightly.opencollection.json
+    type: OpenCollection
+  description: League table standings keyed by league and season, alongside country
+    and league catalog endpoints with logos.
+- aid: highlightly:statistics
+  name: Highlightly Statistics API
+  tags:
+  - Statistics
+  - Teams
+  - Players
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://highlightly.net/sport-api/documentation/
+  baseURL: https://sports.highlightly.net
+  properties:
+  - url: https://highlightly.net/sport-api/documentation/
+    type: Documentation
+  - url: https://highlightly.net/documentation/football/
+    type: APIReference
+  - url: openapi/highlightly-openapi.yml
+    type: OpenAPI
+  - url: collections/highlightly.postman_collection.json
+    type: PostmanCollection
+  - url: collections/highlightly.opencollection.json
+    type: OpenCollection
+  description: Team and per-match statistics plus player summaries, player statistics,
+    and box scores for detailed sports analytics.
+- aid: highlightly:odds
+  name: Highlightly Odds API
+  tags:
+  - Odds
+  - Betting
+  - Bookmakers
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://highlightly.net/sport-api/documentation/
+  baseURL: https://sports.highlightly.net
+  properties:
+  - url: https://highlightly.net/sport-api/documentation/
+    type: Documentation
+  - url: https://highlightly.net/documentation/football/
+    type: APIReference
+  - url: openapi/highlightly-openapi.yml
+    type: OpenAPI
+  - url: collections/highlightly.postman_collection.json
+    type: PostmanCollection
+  - url: collections/highlightly.opencollection.json
+    type: OpenCollection
+  description: Pre-match and live betting odds filtered by match, league, bookmaker,
+    and odds type, with a supporting bookmakers catalog.
+- aid: highlightly:highlights
+  name: Highlightly Highlights API
+  tags:
+  - Highlights
+  - Video
+  - Clips
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://highlightly.net/sport-api/documentation/
+  baseURL: https://sports.highlightly.net
+  properties:
+  - url: https://highlightly.net/sport-api/documentation/
+    type: Documentation
+  - url: https://highlightly.net/documentation/football/
+    type: APIReference
+  - url: openapi/highlightly-openapi.yml
+    type: OpenAPI
+  - url: collections/highlightly.postman_collection.json
+    type: PostmanCollection
+  - url: collections/highlightly.opencollection.json
+    type: OpenCollection
+  description: On-demand video highlight clips filtered by match, league, team, and
+    date, including per-highlight metadata and a geo-restriction checker.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/highlightly
+- type: Website
+  url: https://highlightly.net/
+- type: Documentation
+  url: https://highlightly.net/sport-api/documentation/
+- type: Plans
+  url: plans/highlightly-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/highlightly-rate-limits.yml
+- type: FinOps
+  url: finops/highlightly-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

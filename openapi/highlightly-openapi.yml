@@ -1,0 +1,1042 @@
+openapi: 3.0.1
+info:
+  title: Highlightly Sports API
+  description: >-
+    Real-time sports data and highlights API from Highlightly. Provides live
+    scores, matches, standings, team and player statistics, head-to-head
+    records, odds, and on-demand video highlight clips across football,
+    basketball, and other sports. This document models the All Sports API
+    surface, where each documented resource is namespaced under a sport path
+    segment (for example /football/matches). The same resources are also
+    available on per-sport hosts such as https://soccer.highlightly.net and
+    https://basketball.highlightly.net (without the sport path prefix) and via
+    RapidAPI.
+  contact:
+    name: Highlightly
+    url: https://highlightly.net
+  version: '1.0'
+servers:
+  - url: https://sports.highlightly.net
+    description: Highlightly All Sports API host
+security:
+  - ApiKeyAuth: []
+paths:
+  /football/countries:
+    get:
+      operationId: listFootballCountries
+      tags:
+        - Catalog
+      summary: List football countries
+      parameters:
+        - name: name
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of countries.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryList'
+  /football/countries/{countryCode}:
+    get:
+      operationId: getFootballCountry
+      tags:
+        - Catalog
+      summary: Get a football country by ISO code
+      parameters:
+        - name: countryCode
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A country.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+  /football/leagues:
+    get:
+      operationId: listFootballLeagues
+      tags:
+        - Catalog
+      summary: List football leagues
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          schema:
+            type: integer
+        - name: season
+          in: query
+          schema:
+            type: integer
+        - name: leagueName
+          in: query
+          schema:
+            type: string
+        - name: countryCode
+          in: query
+          schema:
+            type: string
+        - name: countryName
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of leagues.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeagueList'
+  /football/leagues/{id}:
+    get:
+      operationId: getFootballLeague
+      tags:
+        - Catalog
+      summary: Get a football league by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A league.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/League'
+  /football/teams:
+    get:
+      operationId: listFootballTeams
+      tags:
+        - Teams
+      summary: List football teams
+      parameters:
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: type
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of teams.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamList'
+  /football/teams/{id}:
+    get:
+      operationId: getFootballTeam
+      tags:
+        - Teams
+      summary: Get a football team by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A team.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+  /football/teams/statistics/{id}:
+    get:
+      operationId: getFootballTeamStatistics
+      tags:
+        - Statistics
+      summary: Get football team statistics
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: fromDate
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: timezone
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Team statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamStatistics'
+  /football/matches:
+    get:
+      operationId: listFootballMatches
+      tags:
+        - Matches
+      summary: List football matches and fixtures
+      parameters:
+        - name: leagueName
+          in: query
+          schema:
+            type: string
+        - name: leagueId
+          in: query
+          schema:
+            type: integer
+        - name: date
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: timezone
+          in: query
+          schema:
+            type: string
+        - name: season
+          in: query
+          schema:
+            type: integer
+        - name: homeTeamId
+          in: query
+          schema:
+            type: integer
+        - name: awayTeamId
+          in: query
+          schema:
+            type: integer
+        - name: homeTeamName
+          in: query
+          schema:
+            type: string
+        - name: awayTeamName
+          in: query
+          schema:
+            type: string
+        - name: countryCode
+          in: query
+          schema:
+            type: string
+        - name: countryName
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of matches.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchList'
+  /football/matches/{id}:
+    get:
+      operationId: getFootballMatch
+      tags:
+        - Matches
+      summary: Get a football match by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A match.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Match'
+  /football/highlights:
+    get:
+      operationId: listFootballHighlights
+      tags:
+        - Highlights
+      summary: List football highlight clips
+      parameters:
+        - name: countryCode
+          in: query
+          schema:
+            type: string
+        - name: countryName
+          in: query
+          schema:
+            type: string
+        - name: leagueName
+          in: query
+          schema:
+            type: string
+        - name: leagueId
+          in: query
+          schema:
+            type: integer
+        - name: date
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: timezone
+          in: query
+          schema:
+            type: string
+        - name: season
+          in: query
+          schema:
+            type: integer
+        - name: matchId
+          in: query
+          schema:
+            type: integer
+        - name: homeTeamId
+          in: query
+          schema:
+            type: integer
+        - name: awayTeamId
+          in: query
+          schema:
+            type: integer
+        - name: homeTeamName
+          in: query
+          schema:
+            type: string
+        - name: awayTeamName
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of highlights.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HighlightList'
+  /football/highlights/{id}:
+    get:
+      operationId: getFootballHighlight
+      tags:
+        - Highlights
+      summary: Get a football highlight by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A highlight.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Highlight'
+  /football/highlights/geo-restrictions/{id}:
+    get:
+      operationId: getFootballHighlightGeoRestrictions
+      tags:
+        - Highlights
+      summary: Get geo restrictions for a football highlight
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Geo restriction details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoRestriction'
+  /football/bookmakers:
+    get:
+      operationId: listFootballBookmakers
+      tags:
+        - Odds
+      summary: List bookmakers
+      parameters:
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of bookmakers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookmakerList'
+  /football/bookmakers/{id}:
+    get:
+      operationId: getFootballBookmaker
+      tags:
+        - Odds
+      summary: Get a bookmaker by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A bookmaker.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bookmaker'
+  /football/odds:
+    get:
+      operationId: listFootballOdds
+      tags:
+        - Odds
+      summary: List football odds
+      parameters:
+        - name: oddsType
+          in: query
+          schema:
+            type: string
+        - name: leagueId
+          in: query
+          schema:
+            type: integer
+        - name: leagueName
+          in: query
+          schema:
+            type: string
+        - name: timezone
+          in: query
+          schema:
+            type: string
+        - name: bookmakerId
+          in: query
+          schema:
+            type: integer
+        - name: bookmakerName
+          in: query
+          schema:
+            type: string
+        - name: matchId
+          in: query
+          schema:
+            type: integer
+        - name: date
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of odds.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OddsList'
+  /football/standings:
+    get:
+      operationId: getFootballStandings
+      tags:
+        - Standings
+      summary: Get football league standings
+      parameters:
+        - name: leagueId
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: season
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: League standings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Standings'
+  /football/last-five-games:
+    get:
+      operationId: getFootballLastFiveGames
+      tags:
+        - Matches
+      summary: Get the last five games for a team
+      parameters:
+        - name: teamId
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of recent matches.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchList'
+  /football/head-2-head:
+    get:
+      operationId: getFootballHeadToHead
+      tags:
+        - Matches
+      summary: Get head-to-head records between two teams
+      parameters:
+        - name: teamIdOne
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: teamIdTwo
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Head-to-head records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchList'
+  /football/lineups/{matchId}:
+    get:
+      operationId: getFootballLineups
+      tags:
+        - Matches
+      summary: Get lineups for a match
+      parameters:
+        - name: matchId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Match lineups.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lineups'
+  /football/statistics/{matchId}:
+    get:
+      operationId: getFootballMatchStatistics
+      tags:
+        - Statistics
+      summary: Get statistics for a match
+      parameters:
+        - name: matchId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Match statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchStatistics'
+  /football/events/{id}:
+    get:
+      operationId: getFootballEvents
+      tags:
+        - Matches
+      summary: Get live events for a match
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Live events.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventList'
+  /football/players:
+    get:
+      operationId: listFootballPlayers
+      tags:
+        - Statistics
+      summary: List football players
+      parameters:
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of players.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerList'
+  /football/players/{id}:
+    get:
+      operationId: getFootballPlayer
+      tags:
+        - Statistics
+      summary: Get a football player summary
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A player summary.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+  /football/players/{id}/statistics:
+    get:
+      operationId: getFootballPlayerStatistics
+      tags:
+        - Statistics
+      summary: Get statistics for a football player
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Player statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerStatistics'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-rapidapi-key
+      description: >-
+        API key issued by Highlightly. Sent in the x-rapidapi-key header. When
+        calling via RapidAPI, also send x-rapidapi-host with the relevant
+        RapidAPI host (for example sport-highlights-api.p.rapidapi.com).
+  schemas:
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+    CountryList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
+    LeagueList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/League'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+    TeamList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Team'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    TeamStatistics:
+      type: object
+      properties:
+        team:
+          $ref: '#/components/schemas/Team'
+        matchesPlayed:
+          type: integer
+        wins:
+          type: integer
+        draws:
+          type: integer
+        losses:
+          type: integer
+        goalsFor:
+          type: integer
+        goalsAgainst:
+          type: integer
+    Match:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+          format: date-time
+        league:
+          $ref: '#/components/schemas/League'
+        homeTeam:
+          $ref: '#/components/schemas/Team'
+        awayTeam:
+          $ref: '#/components/schemas/Team'
+        state:
+          type: object
+          properties:
+            description:
+              type: string
+            clock:
+              type: integer
+            score:
+              type: object
+              properties:
+                current:
+                  type: string
+    MatchList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Match'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Highlight:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+        imgUrl:
+          type: string
+        match:
+          $ref: '#/components/schemas/Match'
+    HighlightList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Highlight'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    GeoRestriction:
+      type: object
+      properties:
+        highlightId:
+          type: integer
+        blockedCountries:
+          type: array
+          items:
+            type: string
+        allowedCountries:
+          type: array
+          items:
+            type: string
+    Bookmaker:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    BookmakerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bookmaker'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Odds:
+      type: object
+      properties:
+        match:
+          $ref: '#/components/schemas/Match'
+        bookmaker:
+          $ref: '#/components/schemas/Bookmaker'
+        markets:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              odds:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    label:
+                      type: string
+                    value:
+                      type: string
+    OddsList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Odds'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Standings:
+      type: object
+      properties:
+        league:
+          $ref: '#/components/schemas/League'
+        groups:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              standings:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StandingRow'
+    StandingRow:
+      type: object
+      properties:
+        position:
+          type: integer
+        team:
+          $ref: '#/components/schemas/Team'
+        points:
+          type: integer
+        played:
+          type: integer
+        won:
+          type: integer
+        drawn:
+          type: integer
+        lost:
+          type: integer
+    Lineups:
+      type: object
+      properties:
+        matchId:
+          type: integer
+        homeTeam:
+          $ref: '#/components/schemas/Lineup'
+        awayTeam:
+          $ref: '#/components/schemas/Lineup'
+    Lineup:
+      type: object
+      properties:
+        formation:
+          type: string
+        startingXI:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+        substitutes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+    MatchStatistics:
+      type: object
+      properties:
+        matchId:
+          type: integer
+        teams:
+          type: array
+          items:
+            type: object
+            properties:
+              team:
+                $ref: '#/components/schemas/Team'
+              statistics:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+    Event:
+      type: object
+      properties:
+        time:
+          type: integer
+        type:
+          type: string
+        team:
+          $ref: '#/components/schemas/Team'
+        player:
+          $ref: '#/components/schemas/Player'
+    EventList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+    Player:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        number:
+          type: integer
+        position:
+          type: string
+    PlayerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    PlayerStatistics:
+      type: object
+      properties:
+        player:
+          $ref: '#/components/schemas/Player'
+        statistics:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
+          type: integer

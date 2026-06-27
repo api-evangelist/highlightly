@@ -1,0 +1,92 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Highlightly
+providerId: highlightly
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: true
+tags:
+- Sports
+- Sports Data
+- Live Scores
+- Odds
+- Highlights
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Highlightly spend. Highlightly bills a flat monthly
+  subscription per tier (Basic free, Pro, Ultra, Mega), each tier defined by a
+  daily request quota and a per-second rate limit rather than per-call
+  metering. There are no overage charges - once the daily quota is exhausted,
+  requests are rejected until reset - so cost is bounded and predictable for a
+  given tier. The primary cost lever is matching the subscription tier to
+  observed daily request volume across the sport APIs in use.
+notes: >-
+  Subscription prices and quotas are as published on the Highlightly Football
+  API pricing page; per-sport pricing may differ and plans are also available
+  through RapidAPI. Verify current rates during reconciliation.
+sources:
+- https://highlightly.net/football-api/
+- https://highlightly.net/sport-api/
+- https://rapidapi.com/organization/highlightly-api
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Highlightly
+serviceCategory: Analytics and Data
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+meters:
+- name: subscription_tier
+  description: Flat monthly subscription per API tier (Basic, Pro, Ultra, Mega).
+  unit: subscription
+  aggregation: max
+  dimensions:
+  - account
+  - tier
+  - sport
+- name: requests_per_day
+  description: API requests consumed per day, counted against the tier's daily quota; no overage billing.
+  unit: requests
+  aggregation: sum
+  dimensions:
+  - account
+  - tier
+  - sport
+- name: requests_per_second
+  description: Instantaneous request rate, capped by the tier's per-second rate limit.
+  unit: requests
+  aggregation: max
+  dimensions:
+  - account
+  - tier
+focusColumns:
+  ServiceName: Highlightly Sports API
+  ServiceCategory: Analytics and Data
+  ProviderName: Highlightly
+  PublisherName: Highlightly
+  InvoiceIssuerName: Highlightly
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription-Based
+principles:
+- name: Visibility
+  description: Read the plan metadata returned in every API response to track daily request consumption against the tier quota.
+- name: Allocation
+  description: Use separate API keys per workload or sport to attribute request volume to teams and cost centers.
+- name: Optimization
+  description: Right-size the subscription tier to actual daily request volume; cache stable catalog data (countries, leagues, teams) to reduce request counts; consider annual billing for the advertised discount.
+- name: Accountability
+  description: Because there are no overage charges, monthly cost is fixed per tier - review request burn vs. quota monthly and downgrade or upgrade tiers as usage shifts.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,95 @@
+aid: highlightly
+name: Highlightly
+review:
+  question: Does Highlightly expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-25'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Highlightly's documented surface is
+    request/response REST only. "Live scores" and "live events" are obtained by
+    polling REST endpoints (GET /matches, GET /events/{id}), not via a
+    server-push transport. No Server-Sent Events (SSE) or WebSocket stream is
+    documented, so there is no event-driven channel to model.
+findings:
+  summary: |
+    Highlightly does not publish a documented public WebSocket or SSE API. The
+    platform exposes REST (HTTPS) endpoints over per-sport hosts - for example
+    https://soccer.highlightly.net and https://basketball.highlightly.net - and
+    an All Sports host https://sports.highlightly.net where resources are
+    namespaced under a sport path segment (e.g. /football/matches). The same
+    APIs are also offered through RapidAPI (e.g.
+    football-highlights-api.p.rapidapi.com, sport-highlights-api.p.rapidapi.com).
+    Authentication is an API key sent in the x-rapidapi-key header (with an
+    additional x-rapidapi-host header when calling via RapidAPI). Live data is
+    served through standard REST GET requests and is consumed by polling; no
+    realtime push transport is documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://sports.highlightly.net
+      documented: true
+    - protocol: REST
+      scheme: https
+      baseURL: https://soccer.highlightly.net
+      documented: true
+    - protocol: REST
+      scheme: https
+      baseURL: https://basketball.highlightly.net
+      documented: true
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events streaming endpoint is documented; live data is polled over REST.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented on any Highlightly product or documentation page as of the review date.
+  endpointsConfirmedRest:
+    - GET https://sports.highlightly.net/football/countries
+    - GET https://sports.highlightly.net/football/leagues
+    - GET https://sports.highlightly.net/football/teams
+    - GET https://sports.highlightly.net/football/teams/statistics/{id}
+    - GET https://sports.highlightly.net/football/matches
+    - GET https://sports.highlightly.net/football/matches/{id}
+    - GET https://sports.highlightly.net/football/highlights
+    - GET https://sports.highlightly.net/football/highlights/{id}
+    - GET https://sports.highlightly.net/football/highlights/geo-restrictions/{id}
+    - GET https://sports.highlightly.net/football/bookmakers
+    - GET https://sports.highlightly.net/football/odds
+    - GET https://sports.highlightly.net/football/standings
+    - GET https://sports.highlightly.net/football/last-five-games
+    - GET https://sports.highlightly.net/football/head-2-head
+    - GET https://sports.highlightly.net/football/lineups/{matchId}
+    - GET https://sports.highlightly.net/football/statistics/{matchId}
+    - GET https://sports.highlightly.net/football/events/{id}
+    - GET https://sports.highlightly.net/football/players
+    - GET https://sports.highlightly.net/football/players/{id}/statistics
+authentication:
+  type: apiKey
+  header: x-rapidapi-key
+  note: |
+    API key issued by Highlightly, sent in the x-rapidapi-key header. When
+    calling through RapidAPI, an additional x-rapidapi-host header carries the
+    RapidAPI host (e.g. sport-highlights-api.p.rapidapi.com).
+sources:
+  - url: https://highlightly.net/sport-api/documentation/
+    type: Documentation
+    note: All Sports API documentation; base host https://sports.highlightly.net, endpoints namespaced per sport.
+  - url: https://highlightly.net/documentation/football/
+    type: APIReference
+    note: Football API reference; base host https://soccer.highlightly.net (or RapidAPI), x-rapidapi-key auth.
+  - url: https://highlightly.net/basketball-api/documentation/
+    type: Documentation
+    note: Basketball API documentation; base host https://basketball.highlightly.net (or RapidAPI).
+  - url: https://highlightly.net/
+    type: Website
+    note: Marketing site; lists nine sports and 950+ leagues, REST JSON, plan metadata in every response.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No event-driven (SSE or WebSocket) protocol surface is documented, so no
+    AsyncAPI document was authored. Only an OpenAPI 3.0.1 description of the
+    documented REST surface was created.

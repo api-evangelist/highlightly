@@ -1,0 +1,295 @@
+{
+  "info": {
+    "name": "Highlightly Sports API",
+    "description": "Real-time sports data and highlights API from Highlightly. Live scores, matches and fixtures, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips. Endpoints below use the All Sports host where resources are namespaced under a sport path segment (e.g. /football/matches). Authentication is an API key sent in the x-rapidapi-key header.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "x-rapidapi-key", "type": "string" },
+      { "key": "value", "value": "{{apiKey}}", "type": "string" },
+      { "key": "in", "value": "header", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://sports.highlightly.net" },
+    { "key": "apiKey", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Matches & Fixtures",
+      "item": [
+        {
+          "name": "List Matches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/matches?leagueId=&date=&season=&limit=&offset=",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "matches"],
+              "query": [
+                { "key": "leagueId", "value": "" },
+                { "key": "date", "value": "" },
+                { "key": "season", "value": "" },
+                { "key": "limit", "value": "" },
+                { "key": "offset", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Match",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/matches/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "matches", ":id"],
+              "variable": [{ "key": "id", "value": "" }]
+            }
+          }
+        },
+        {
+          "name": "Last Five Games",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/last-five-games?teamId=",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "last-five-games"],
+              "query": [{ "key": "teamId", "value": "" }]
+            }
+          }
+        },
+        {
+          "name": "Head to Head",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/head-2-head?teamIdOne=&teamIdTwo=",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "head-2-head"],
+              "query": [
+                { "key": "teamIdOne", "value": "" },
+                { "key": "teamIdTwo", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Lineups",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/lineups/:matchId",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "lineups", ":matchId"],
+              "variable": [{ "key": "matchId", "value": "" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Live Scores",
+      "item": [
+        {
+          "name": "Live Events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/events/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "events", ":id"],
+              "variable": [{ "key": "id", "value": "" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Standings",
+      "item": [
+        {
+          "name": "Get Standings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/standings?leagueId=&season=",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "standings"],
+              "query": [
+                { "key": "leagueId", "value": "" },
+                { "key": "season", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Leagues",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/leagues?countryCode=&season=&limit=&offset=",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "leagues"],
+              "query": [
+                { "key": "countryCode", "value": "" },
+                { "key": "season", "value": "" },
+                { "key": "limit", "value": "" },
+                { "key": "offset", "value": "" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Statistics",
+      "item": [
+        {
+          "name": "Team Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/teams/statistics/:id?fromDate=&timezone=",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "teams", "statistics", ":id"],
+              "query": [
+                { "key": "fromDate", "value": "" },
+                { "key": "timezone", "value": "" }
+              ],
+              "variable": [{ "key": "id", "value": "" }]
+            }
+          }
+        },
+        {
+          "name": "Match Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/statistics/:matchId",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "statistics", ":matchId"],
+              "variable": [{ "key": "matchId", "value": "" }]
+            }
+          }
+        },
+        {
+          "name": "Player Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/players/:id/statistics",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "players", ":id", "statistics"],
+              "variable": [{ "key": "id", "value": "" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Odds",
+      "item": [
+        {
+          "name": "List Odds",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/odds?matchId=&leagueId=&bookmakerId=&oddsType=",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "odds"],
+              "query": [
+                { "key": "matchId", "value": "" },
+                { "key": "leagueId", "value": "" },
+                { "key": "bookmakerId", "value": "" },
+                { "key": "oddsType", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Bookmakers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/bookmakers?name=&limit=&offset=",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "bookmakers"],
+              "query": [
+                { "key": "name", "value": "" },
+                { "key": "limit", "value": "" },
+                { "key": "offset", "value": "" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Highlights",
+      "item": [
+        {
+          "name": "List Highlights",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/highlights?matchId=&leagueId=&date=&limit=&offset=",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "highlights"],
+              "query": [
+                { "key": "matchId", "value": "" },
+                { "key": "leagueId", "value": "" },
+                { "key": "date", "value": "" },
+                { "key": "limit", "value": "" },
+                { "key": "offset", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Highlight",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/highlights/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "highlights", ":id"],
+              "variable": [{ "key": "id", "value": "" }]
+            }
+          }
+        },
+        {
+          "name": "Highlight Geo Restrictions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/football/highlights/geo-restrictions/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["football", "highlights", "geo-restrictions", ":id"],
+              "variable": [{ "key": "id", "value": "" }]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

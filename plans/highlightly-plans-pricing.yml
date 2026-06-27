@@ -1,0 +1,184 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Highlightly
+providerId: highlightly
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: true
+tags:
+- Sports
+- Sports Data
+- Live Scores
+- Odds
+- Highlights
+- Plans
+description: >-
+  Highlightly sells its sports data APIs through tiered monthly subscriptions
+  differentiated by daily request volume and per-second rate limit, not by
+  feature access - every tier exposes the same data (live scores, country /
+  league / team data, matches, highlights, odds, bookmakers, standings,
+  lineups, live events, match statistics, player data, and the highlight
+  geo-restriction checker). A free Basic tier offers 100 requests per day with
+  no credit card. There are no overage charges; once a daily limit is reached,
+  requests stop. Plans are sold per sport API and are also available through
+  RapidAPI. The tier values below are those published on the Football API
+  pricing page; per-sport pricing may differ.
+notes: >-
+  Prices and daily limits are as published on the Highlightly Football API
+  pricing page; verify the current per-sport tiers on the relevant Highlightly
+  product page or RapidAPI listing during reconciliation. Annual billing
+  discounts are advertised.
+sources:
+- https://highlightly.net/football-api/
+- https://highlightly.net/sport-api/
+- https://highlightly.net/
+- https://rapidapi.com/organization/highlightly-api
+plans:
+- id: highlightly-basic
+  name: Basic
+  type: free
+  description: >-
+    Free tier with 100 API requests per day, no credit card required, full
+    feature access across the catalog.
+  entries:
+  - label: Daily Requests
+    name: requests_per_day
+    type: limit
+    metric: requests
+    limit: 100
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  elements:
+  - name: Live Scores
+  - name: Country & League Data
+  - name: Team Data
+  - name: Matches
+  - name: Highlights
+  - name: Odds & Bookmakers
+  - name: Standings
+  - name: Lineups
+  - name: Live Events
+  - name: Match Statistics
+  - name: Player Data
+  - name: Geo Restriction Checker
+- id: highlightly-pro
+  name: Pro
+  type: subscription
+  description: >-
+    7,500 API requests per day with a 12 requests-per-second rate limit.
+  entries:
+  - label: Subscription
+    name: subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $9.49 per month
+    userMultiplied: false
+  - label: Daily Requests
+    name: requests_per_day
+    type: limit
+    metric: requests
+    limit: 7500
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: Rate Limit
+    name: rate_limit
+    type: limit
+    metric: requests
+    limit: 12
+    timeFrame: second
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Full Catalog Access
+- id: highlightly-ultra
+  name: Ultra
+  type: subscription
+  description: >-
+    25,000 API requests per day with a 20 requests-per-second rate limit.
+  entries:
+  - label: Subscription
+    name: subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $20.99 per month
+    userMultiplied: false
+  - label: Daily Requests
+    name: requests_per_day
+    type: limit
+    metric: requests
+    limit: 25000
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: Rate Limit
+    name: rate_limit
+    type: limit
+    metric: requests
+    limit: 20
+    timeFrame: second
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Full Catalog Access
+- id: highlightly-mega
+  name: Mega
+  type: subscription
+  description: >-
+    65,000 API requests per day with a 100 requests-per-second rate limit.
+  entries:
+  - label: Subscription
+    name: subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $45.99 per month
+    userMultiplied: false
+  - label: Daily Requests
+    name: requests_per_day
+    type: limit
+    metric: requests
+    limit: 65000
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: Rate Limit
+    name: rate_limit
+    type: limit
+    metric: requests
+    limit: 100
+    timeFrame: second
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Full Catalog Access
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

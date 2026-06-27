@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "title": "Highlightly Sports API",
+    "description": "Real-time sports data and highlights API from Highlightly. Live scores, matches and fixtures, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips. Endpoints use the All Sports host where resources are namespaced under a sport path segment (e.g. /football/matches). Authentication is an API key sent in the x-rapidapi-key header.",
+    "version": "1.0"
+  },
+  "servers": [
+    { "url": "https://sports.highlightly.net", "description": "Highlightly All Sports API host" }
+  ],
+  "auth": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "x-rapidapi-key"
+  },
+  "groups": [
+    {
+      "name": "Matches & Fixtures",
+      "requests": [
+        { "name": "List Matches", "method": "GET", "url": "/football/matches", "query": { "leagueId": "", "date": "", "season": "", "homeTeamId": "", "awayTeamId": "", "limit": "", "offset": "" } },
+        { "name": "Get Match", "method": "GET", "url": "/football/matches/{id}" },
+        { "name": "Last Five Games", "method": "GET", "url": "/football/last-five-games", "query": { "teamId": "" } },
+        { "name": "Head to Head", "method": "GET", "url": "/football/head-2-head", "query": { "teamIdOne": "", "teamIdTwo": "" } },
+        { "name": "Lineups", "method": "GET", "url": "/football/lineups/{matchId}" }
+      ]
+    },
+    {
+      "name": "Live Scores",
+      "requests": [
+        { "name": "Live Events", "method": "GET", "url": "/football/events/{id}" }
+      ]
+    },
+    {
+      "name": "Standings",
+      "requests": [
+        { "name": "Get Standings", "method": "GET", "url": "/football/standings", "query": { "leagueId": "", "season": "" } },
+        { "name": "List Leagues", "method": "GET", "url": "/football/leagues", "query": { "countryCode": "", "season": "", "limit": "", "offset": "" } }
+      ]
+    },
+    {
+      "name": "Statistics",
+      "requests": [
+        { "name": "Team Statistics", "method": "GET", "url": "/football/teams/statistics/{id}", "query": { "fromDate": "", "timezone": "" } },
+        { "name": "Match Statistics", "method": "GET", "url": "/football/statistics/{matchId}" },
+        { "name": "Player Statistics", "method": "GET", "url": "/football/players/{id}/statistics" }
+      ]
+    },
+    {
+      "name": "Odds",
+      "requests": [
+        { "name": "List Odds", "method": "GET", "url": "/football/odds", "query": { "matchId": "", "leagueId": "", "bookmakerId": "", "oddsType": "" } },
+        { "name": "List Bookmakers", "method": "GET", "url": "/football/bookmakers", "query": { "name": "", "limit": "", "offset": "" } }
+      ]
+    },
+    {
+      "name": "Highlights",
+      "requests": [
+        { "name": "List Highlights", "method": "GET", "url": "/football/highlights", "query": { "matchId": "", "leagueId": "", "date": "", "limit": "", "offset": "" } },
+        { "name": "Get Highlight", "method": "GET", "url": "/football/highlights/{id}" },
+        { "name": "Highlight Geo Restrictions", "method": "GET", "url": "/football/highlights/geo-restrictions/{id}" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Highlightly
+providerId: highlightly
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: true
+tags:
+- Sports
+- Sports Data
+- Live Scores
+- Odds
+- Highlights
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Highlightly enforces two limits per subscription tier - a daily request
+  quota and a per-second request rate. The free Basic tier allows 100 requests
+  per day with no stated per-second rate limit. Paid tiers raise both the
+  daily quota and the per-second rate (Pro 7,500/day at 12 rps, Ultra
+  25,000/day at 20 rps, Mega 65,000/day at 100 rps). There are no overage
+  charges; when a daily quota is exhausted, further requests are simply
+  rejected until the quota resets. Every JSON response includes plan metadata
+  describing the tier and request usage.
+notes: >-
+  Values reflect the Highlightly Football API pricing page; per-sport limits
+  may vary and should be confirmed against the relevant product page or
+  RapidAPI listing during reconciliation.
+sources:
+- https://highlightly.net/football-api/
+- https://highlightly.net/sport-api/documentation/
+- https://highlightly.net/documentation/football/
+responseCodes:
+  throttled: 429
+limits:
+- name: Daily Request Quota (Basic)
+  scope: account
+  metric: requests
+  limit: 100 per day
+  notes: Free Basic tier; no credit card required.
+- name: Daily Request Quota (Pro)
+  scope: account
+  metric: requests
+  limit: 7500 per day
+  notes: Pro subscription tier.
+- name: Daily Request Quota (Ultra)
+  scope: account
+  metric: requests
+  limit: 25000 per day
+  notes: Ultra subscription tier.
+- name: Daily Request Quota (Mega)
+  scope: account
+  metric: requests
+  limit: 65000 per day
+  notes: Mega subscription tier.
+- name: Requests Per Second (Pro)
+  scope: account
+  metric: requests
+  limit: 12 per second
+  notes: Per-second rate limit on the Pro tier.
+- name: Requests Per Second (Ultra)
+  scope: account
+  metric: requests
+  limit: 20 per second
+  notes: Per-second rate limit on the Ultra tier.
+- name: Requests Per Second (Mega)
+  scope: account
+  metric: requests
+  limit: 100 per second
+  notes: Per-second rate limit on the Mega tier.
+policies:
+- name: No Overage Charges
+  description: There are no overage fees; once the daily limit is reached, requests stop until the quota resets.
+- name: Tiered Limits
+  description: Both the daily quota and per-second rate increase as accounts move from Basic to Pro, Ultra, and Mega.
+- name: Plan Metadata In Responses
+  description: Each response carries plan metadata (tier and request usage), allowing clients to track consumption and back off before hitting limits.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
