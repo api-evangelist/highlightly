@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/highlightly-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-rapidapi-key
+  description: API key issued by Highlightly. Sent in the x-rapidapi-key header. When calling
+    via RapidAPI, also send x-rapidapi-host with the relevant RapidAPI host (for example sport-highlights-api.p.rapidapi.com).
+  sources:
+  - openapi/highlightly-openapi.yml

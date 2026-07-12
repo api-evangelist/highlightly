@@ -152,6 +152,10 @@ apis:
   description: On-demand video highlight clips filtered by match, league, team, and
     date, including per-highlight metadata and a geo-restriction checker.
 common:
+- type: DomainSecurity
+  url: security/highlightly-domain-security.yml
+- type: Authentication
+  url: authentication/highlightly-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/highlightly
 - type: Website

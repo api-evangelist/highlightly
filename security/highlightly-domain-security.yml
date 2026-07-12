@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: highlightly.net
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 20 11:09:13 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: sports.highlightly.net
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 20 11:09:13 2026 GMT
+  hsts: null
+domains:
+- domain: highlightly.net
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false
