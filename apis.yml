@@ -152,6 +152,8 @@ apis:
   description: On-demand video highlight clips filtered by match, league, team, and
     date, including per-highlight metadata and a geo-restriction checker.
 common:
+- type: AgenticAccess
+  url: agentic-access/highlightly-agentic-access.yml
 - type: DomainSecurity
   url: security/highlightly-domain-security.yml
 - type: Authentication
