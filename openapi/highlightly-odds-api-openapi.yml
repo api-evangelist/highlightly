@@ -1,0 +1,251 @@
+openapi: 3.0.1
+info:
+  title: Highlightly Sports Catalog Odds API
+  description: Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.
+  contact:
+    name: Highlightly
+    url: https://highlightly.net
+  version: '1.0'
+servers:
+- url: https://sports.highlightly.net
+  description: Highlightly All Sports API host
+security:
+- ApiKeyAuth: []
+tags:
+- name: Odds
+paths:
+  /football/bookmakers:
+    get:
+      operationId: listFootballBookmakers
+      tags:
+      - Odds
+      summary: List bookmakers
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of bookmakers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookmakerList'
+  /football/bookmakers/{id}:
+    get:
+      operationId: getFootballBookmaker
+      tags:
+      - Odds
+      summary: Get a bookmaker by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A bookmaker.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bookmaker'
+  /football/odds:
+    get:
+      operationId: listFootballOdds
+      tags:
+      - Odds
+      summary: List football odds
+      parameters:
+      - name: oddsType
+        in: query
+        schema:
+          type: string
+      - name: leagueId
+        in: query
+        schema:
+          type: integer
+      - name: leagueName
+        in: query
+        schema:
+          type: string
+      - name: timezone
+        in: query
+        schema:
+          type: string
+      - name: bookmakerId
+        in: query
+        schema:
+          type: integer
+      - name: bookmakerName
+        in: query
+        schema:
+          type: string
+      - name: matchId
+        in: query
+        schema:
+          type: integer
+      - name: date
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of odds.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OddsList'
+components:
+  schemas:
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+    Odds:
+      type: object
+      properties:
+        match:
+          $ref: '#/components/schemas/Match'
+        bookmaker:
+          $ref: '#/components/schemas/Bookmaker'
+        markets:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              odds:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    label:
+                      type: string
+                    value:
+                      type: string
+    BookmakerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bookmaker'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    OddsList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Odds'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
+          type: integer
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+    Match:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+          format: date-time
+        league:
+          $ref: '#/components/schemas/League'
+        homeTeam:
+          $ref: '#/components/schemas/Team'
+        awayTeam:
+          $ref: '#/components/schemas/Team'
+        state:
+          type: object
+          properties:
+            description:
+              type: string
+            clock:
+              type: integer
+            score:
+              type: object
+              properties:
+                current:
+                  type: string
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
+    Bookmaker:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-rapidapi-key
+      description: API key issued by Highlightly. Sent in the x-rapidapi-key header. When calling via RapidAPI, also send x-rapidapi-host with the relevant RapidAPI host (for example sport-highlights-api.p.rapidapi.com).

@@ -1,0 +1,237 @@
+openapi: 3.0.1
+info:
+  title: Highlightly Sports Catalog Statistics API
+  description: Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.
+  contact:
+    name: Highlightly
+    url: https://highlightly.net
+  version: '1.0'
+servers:
+- url: https://sports.highlightly.net
+  description: Highlightly All Sports API host
+security:
+- ApiKeyAuth: []
+tags:
+- name: Statistics
+paths:
+  /football/teams/statistics/{id}:
+    get:
+      operationId: getFootballTeamStatistics
+      tags:
+      - Statistics
+      summary: Get football team statistics
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: fromDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: timezone
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Team statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamStatistics'
+  /football/statistics/{matchId}:
+    get:
+      operationId: getFootballMatchStatistics
+      tags:
+      - Statistics
+      summary: Get statistics for a match
+      parameters:
+      - name: matchId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Match statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchStatistics'
+  /football/players:
+    get:
+      operationId: listFootballPlayers
+      tags:
+      - Statistics
+      summary: List football players
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of players.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerList'
+  /football/players/{id}:
+    get:
+      operationId: getFootballPlayer
+      tags:
+      - Statistics
+      summary: Get a football player summary
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A player summary.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+  /football/players/{id}/statistics:
+    get:
+      operationId: getFootballPlayerStatistics
+      tags:
+      - Statistics
+      summary: Get statistics for a football player
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Player statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerStatistics'
+components:
+  schemas:
+    MatchStatistics:
+      type: object
+      properties:
+        matchId:
+          type: integer
+        teams:
+          type: array
+          items:
+            type: object
+            properties:
+              team:
+                $ref: '#/components/schemas/Team'
+              statistics:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+    TeamStatistics:
+      type: object
+      properties:
+        team:
+          $ref: '#/components/schemas/Team'
+        matchesPlayed:
+          type: integer
+        wins:
+          type: integer
+        draws:
+          type: integer
+        losses:
+          type: integer
+        goalsFor:
+          type: integer
+        goalsAgainst:
+          type: integer
+    Player:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        number:
+          type: integer
+        position:
+          type: string
+    PlayerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    PlayerStatistics:
+      type: object
+      properties:
+        player:
+          $ref: '#/components/schemas/Player'
+        statistics:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
+          type: integer
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-rapidapi-key
+      description: API key issued by Highlightly. Sent in the x-rapidapi-key header. When calling via RapidAPI, also send x-rapidapi-host with the relevant RapidAPI host (for example sport-highlights-api.p.rapidapi.com).

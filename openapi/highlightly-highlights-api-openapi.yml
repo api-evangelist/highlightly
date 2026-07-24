@@ -1,0 +1,247 @@
+openapi: 3.0.1
+info:
+  title: Highlightly Sports Catalog Highlights API
+  description: Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.
+  contact:
+    name: Highlightly
+    url: https://highlightly.net
+  version: '1.0'
+servers:
+- url: https://sports.highlightly.net
+  description: Highlightly All Sports API host
+security:
+- ApiKeyAuth: []
+tags:
+- name: Highlights
+paths:
+  /football/highlights:
+    get:
+      operationId: listFootballHighlights
+      tags:
+      - Highlights
+      summary: List football highlight clips
+      parameters:
+      - name: countryCode
+        in: query
+        schema:
+          type: string
+      - name: countryName
+        in: query
+        schema:
+          type: string
+      - name: leagueName
+        in: query
+        schema:
+          type: string
+      - name: leagueId
+        in: query
+        schema:
+          type: integer
+      - name: date
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: timezone
+        in: query
+        schema:
+          type: string
+      - name: season
+        in: query
+        schema:
+          type: integer
+      - name: matchId
+        in: query
+        schema:
+          type: integer
+      - name: homeTeamId
+        in: query
+        schema:
+          type: integer
+      - name: awayTeamId
+        in: query
+        schema:
+          type: integer
+      - name: homeTeamName
+        in: query
+        schema:
+          type: string
+      - name: awayTeamName
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of highlights.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HighlightList'
+  /football/highlights/{id}:
+    get:
+      operationId: getFootballHighlight
+      tags:
+      - Highlights
+      summary: Get a football highlight by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A highlight.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Highlight'
+  /football/highlights/geo-restrictions/{id}:
+    get:
+      operationId: getFootballHighlightGeoRestrictions
+      tags:
+      - Highlights
+      summary: Get geo restrictions for a football highlight
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Geo restriction details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoRestriction'
+components:
+  schemas:
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+    Highlight:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+        imgUrl:
+          type: string
+        match:
+          $ref: '#/components/schemas/Match'
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
+          type: integer
+    GeoRestriction:
+      type: object
+      properties:
+        highlightId:
+          type: integer
+        blockedCountries:
+          type: array
+          items:
+            type: string
+        allowedCountries:
+          type: array
+          items:
+            type: string
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+    Match:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+          format: date-time
+        league:
+          $ref: '#/components/schemas/League'
+        homeTeam:
+          $ref: '#/components/schemas/Team'
+        awayTeam:
+          $ref: '#/components/schemas/Team'
+        state:
+          type: object
+          properties:
+            description:
+              type: string
+            clock:
+              type: integer
+            score:
+              type: object
+              properties:
+                current:
+                  type: string
+    HighlightList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Highlight'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-rapidapi-key
+      description: API key issued by Highlightly. Sent in the x-rapidapi-key header. When calling via RapidAPI, also send x-rapidapi-host with the relevant RapidAPI host (for example sport-highlights-api.p.rapidapi.com).

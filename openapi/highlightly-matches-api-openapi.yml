@@ -1,0 +1,328 @@
+openapi: 3.0.1
+info:
+  title: Highlightly Sports Catalog Matches API
+  description: Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.
+  contact:
+    name: Highlightly
+    url: https://highlightly.net
+  version: '1.0'
+servers:
+- url: https://sports.highlightly.net
+  description: Highlightly All Sports API host
+security:
+- ApiKeyAuth: []
+tags:
+- name: Matches
+paths:
+  /football/matches:
+    get:
+      operationId: listFootballMatches
+      tags:
+      - Matches
+      summary: List football matches and fixtures
+      parameters:
+      - name: leagueName
+        in: query
+        schema:
+          type: string
+      - name: leagueId
+        in: query
+        schema:
+          type: integer
+      - name: date
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: timezone
+        in: query
+        schema:
+          type: string
+      - name: season
+        in: query
+        schema:
+          type: integer
+      - name: homeTeamId
+        in: query
+        schema:
+          type: integer
+      - name: awayTeamId
+        in: query
+        schema:
+          type: integer
+      - name: homeTeamName
+        in: query
+        schema:
+          type: string
+      - name: awayTeamName
+        in: query
+        schema:
+          type: string
+      - name: countryCode
+        in: query
+        schema:
+          type: string
+      - name: countryName
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of matches.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchList'
+  /football/matches/{id}:
+    get:
+      operationId: getFootballMatch
+      tags:
+      - Matches
+      summary: Get a football match by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A match.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Match'
+  /football/last-five-games:
+    get:
+      operationId: getFootballLastFiveGames
+      tags:
+      - Matches
+      summary: Get the last five games for a team
+      parameters:
+      - name: teamId
+        in: query
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of recent matches.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchList'
+  /football/head-2-head:
+    get:
+      operationId: getFootballHeadToHead
+      tags:
+      - Matches
+      summary: Get head-to-head records between two teams
+      parameters:
+      - name: teamIdOne
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: teamIdTwo
+        in: query
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Head-to-head records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchList'
+  /football/lineups/{matchId}:
+    get:
+      operationId: getFootballLineups
+      tags:
+      - Matches
+      summary: Get lineups for a match
+      parameters:
+      - name: matchId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Match lineups.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lineups'
+  /football/events/{id}:
+    get:
+      operationId: getFootballEvents
+      tags:
+      - Matches
+      summary: Get live events for a match
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Live events.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventList'
+components:
+  schemas:
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+    Event:
+      type: object
+      properties:
+        time:
+          type: integer
+        type:
+          type: string
+        team:
+          $ref: '#/components/schemas/Team'
+        player:
+          $ref: '#/components/schemas/Player'
+    MatchList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Match'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Player:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        number:
+          type: integer
+        position:
+          type: string
+    Lineup:
+      type: object
+      properties:
+        formation:
+          type: string
+        startingXI:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+        substitutes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+    Lineups:
+      type: object
+      properties:
+        matchId:
+          type: integer
+        homeTeam:
+          $ref: '#/components/schemas/Lineup'
+        awayTeam:
+          $ref: '#/components/schemas/Lineup'
+    EventList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
+          type: integer
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+    Match:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+          format: date-time
+        league:
+          $ref: '#/components/schemas/League'
+        homeTeam:
+          $ref: '#/components/schemas/Team'
+        awayTeam:
+          $ref: '#/components/schemas/Team'
+        state:
+          type: object
+          properties:
+            description:
+              type: string
+            clock:
+              type: integer
+            score:
+              type: object
+              properties:
+                current:
+                  type: string
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-rapidapi-key
+      description: API key issued by Highlightly. Sent in the x-rapidapi-key header. When calling via RapidAPI, also send x-rapidapi-host with the relevant RapidAPI host (for example sport-highlights-api.p.rapidapi.com).

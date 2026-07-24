@@ -1,0 +1,176 @@
+openapi: 3.0.1
+info:
+  title: Highlightly Sports Catalog API
+  description: Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.
+  contact:
+    name: Highlightly
+    url: https://highlightly.net
+  version: '1.0'
+servers:
+- url: https://sports.highlightly.net
+  description: Highlightly All Sports API host
+security:
+- ApiKeyAuth: []
+tags:
+- name: Catalog
+paths:
+  /football/countries:
+    get:
+      operationId: listFootballCountries
+      tags:
+      - Catalog
+      summary: List football countries
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of countries.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryList'
+  /football/countries/{countryCode}:
+    get:
+      operationId: getFootballCountry
+      tags:
+      - Catalog
+      summary: Get a football country by ISO code
+      parameters:
+      - name: countryCode
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A country.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+  /football/leagues:
+    get:
+      operationId: listFootballLeagues
+      tags:
+      - Catalog
+      summary: List football leagues
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      - name: season
+        in: query
+        schema:
+          type: integer
+      - name: leagueName
+        in: query
+        schema:
+          type: string
+      - name: countryCode
+        in: query
+        schema:
+          type: string
+      - name: countryName
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of leagues.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeagueList'
+  /football/leagues/{id}:
+    get:
+      operationId: getFootballLeague
+      tags:
+      - Catalog
+      summary: Get a football league by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A league.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/League'
+components:
+  schemas:
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+    LeagueList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/League'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
+          type: integer
+    CountryList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-rapidapi-key
+      description: API key issued by Highlightly. Sent in the x-rapidapi-key header. When calling via RapidAPI, also send x-rapidapi-host with the relevant RapidAPI host (for example sport-highlights-api.p.rapidapi.com).
