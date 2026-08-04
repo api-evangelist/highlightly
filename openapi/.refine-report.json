@@ -1,0 +1,26 @@
+{
+  "provider": "highlightly",
+  "sources": [
+    "highlightly-catalog-api-openapi.yml",
+    "highlightly-highlights-api-openapi.yml",
+    "highlightly-matches-api-openapi.yml",
+    "highlightly-odds-api-openapi.yml",
+    "highlightly-standings-api-openapi.yml",
+    "highlightly-statistics-api-openapi.yml",
+    "highlightly-teams-api-openapi.yml"
+  ],
+  "outputs": [
+    "highlightly-catalog-api-openapi.yml",
+    "highlightly-highlights-api-openapi.yml",
+    "highlightly-matches-api-openapi.yml",
+    "highlightly-odds-api-openapi.yml",
+    "highlightly-standings-api-openapi.yml",
+    "highlightly-statistics-api-openapi.yml",
+    "highlightly-teams-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
