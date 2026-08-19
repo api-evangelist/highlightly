@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Highlightly Sports Catalog API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-rapidapi-key",
+      "value": "{{x-rapidapi-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Catalog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List football countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/countries",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List football countries"
+        },
+        {
+          "info": {
+            "name": "Get a football country by ISO code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/countries/:countryCode",
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a football country by ISO code"
+        },
+        {
+          "info": {
+            "name": "List football leagues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/leagues",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "leagueName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "countryName",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List football leagues"
+        },
+        {
+          "info": {
+            "name": "Get a football league by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/leagues/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a football league by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Highlightly Sports Catalog Statistics API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-rapidapi-key",
+      "value": "{{x-rapidapi-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get football team statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/teams/statistics/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get football team statistics"
+        },
+        {
+          "info": {
+            "name": "Get statistics for a match",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/statistics/:matchId",
+            "params": [
+              {
+                "name": "matchId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get statistics for a match"
+        },
+        {
+          "info": {
+            "name": "List football players",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/players",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List football players"
+        },
+        {
+          "info": {
+            "name": "Get a football player summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/players/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a football player summary"
+        },
+        {
+          "info": {
+            "name": "Get statistics for a football player",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/players/:id/statistics",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get statistics for a football player"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

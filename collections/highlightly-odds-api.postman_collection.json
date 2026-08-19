@@ -1,0 +1,419 @@
+{
+  "item": [
+    {
+      "id": "d353da07-a0b2-408c-885c-c526b8f50391",
+      "name": "Odds",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8ff2388e-9b02-4853-8250-7ee60a363501",
+          "name": "List bookmakers",
+          "request": {
+            "name": "List bookmakers",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "bookmakers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dfc2fe4-a56e-4fc3-99cb-534ff1630d2e",
+              "name": "A list of bookmakers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "bookmakers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 9015,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 9821,\n      \"name\": \"string\"\n    }\n  ],\n  \"plan\": {\n    \"tier\": \"string\",\n    \"requestLimit\": 5051,\n    \"requestCount\": 4555\n  },\n  \"pagination\": {\n    \"limit\": 4022,\n    \"offset\": 8188,\n    \"total\": 4105\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "523ca7ce-4351-48ca-bb5e-1d20e36a1903",
+          "name": "Get a bookmaker by ID",
+          "request": {
+            "name": "Get a bookmaker by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "bookmakers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4cc4525c-11b6-43c3-8e0f-08a1caf8bf6f",
+              "name": "A bookmaker.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "bookmakers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2531,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b30f5f0-8c31-497a-897e-36427cc08a81",
+          "name": "List football odds",
+          "request": {
+            "name": "List football odds",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "odds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "oddsType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "leagueId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "leagueName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bookmakerId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bookmakerName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "matchId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e35ecb13-bc63-4d62-961e-3bd4bac82bad",
+              "name": "A list of odds.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "odds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "oddsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "leagueId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "leagueName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bookmakerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bookmakerName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "matchId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"match\": {\n        \"id\": 9423,\n        \"date\": \"2019-03-08T21:15:44.540Z\",\n        \"league\": {\n          \"id\": 7463,\n          \"name\": \"string\",\n          \"logo\": \"string\",\n          \"season\": 7364,\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"logo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"homeTeam\": {\n          \"id\": 5088,\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        },\n        \"awayTeam\": {\n          \"id\": 7963,\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        },\n        \"state\": {\n          \"description\": \"string\",\n          \"clock\": 578,\n          \"score\": {\n            \"current\": \"string\"\n          }\n        }\n      },\n      \"bookmaker\": {\n        \"id\": 3083,\n        \"name\": \"string\"\n      },\n      \"markets\": [\n        {\n          \"name\": \"string\",\n          \"odds\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\"\n            }\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"odds\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"match\": {\n        \"id\": 8381,\n        \"date\": \"1970-10-21T01:26:31.998Z\",\n        \"league\": {\n          \"id\": 825,\n          \"name\": \"string\",\n          \"logo\": \"string\",\n          \"season\": 5255,\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"logo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"homeTeam\": {\n          \"id\": 1715,\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        },\n        \"awayTeam\": {\n          \"id\": 5267,\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        },\n        \"state\": {\n          \"description\": \"string\",\n          \"clock\": 7532,\n          \"score\": {\n            \"current\": \"string\"\n          }\n        }\n      },\n      \"bookmaker\": {\n        \"id\": 6076,\n        \"name\": \"string\"\n      },\n      \"markets\": [\n        {\n          \"name\": \"string\",\n          \"odds\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\"\n            }\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"odds\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"plan\": {\n    \"tier\": \"string\",\n    \"requestLimit\": 1169,\n    \"requestCount\": 4137\n  },\n  \"pagination\": {\n    \"limit\": 985,\n    \"offset\": 1146,\n    \"total\": 1218\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sports.highlightly.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-rapidapi-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "78d13544-90ae-4ebc-a4e4-a9898b8c6038",
+    "name": "Highlightly Sports Catalog Odds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.\n\nContact Support:\n Name: Highlightly",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,718 @@
+{
+  "item": [
+    {
+      "id": "440ae479-431a-43ba-ad1c-79bc88a30655",
+      "name": "Matches",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "31457548-7496-426a-a997-2897a11d2acc",
+          "name": "List football matches and fixtures",
+          "request": {
+            "name": "List football matches and fixtures",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "matches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "leagueName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "leagueId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "season",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "homeTeamId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "awayTeamId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "homeTeamName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "awayTeamName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "countryName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d46ca87e-2983-4299-b6f3-ef488a232d2a",
+              "name": "A list of matches.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "matches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "leagueName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "leagueId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "season",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "homeTeamId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "awayTeamId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "homeTeamName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "awayTeamName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 4904,\n      \"date\": \"1957-03-15T13:49:33.846Z\",\n      \"league\": {\n        \"id\": 769,\n        \"name\": \"string\",\n        \"logo\": \"string\",\n        \"season\": 7933,\n        \"country\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        }\n      },\n      \"homeTeam\": {\n        \"id\": 3491,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"awayTeam\": {\n        \"id\": 5620,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"state\": {\n        \"description\": \"string\",\n        \"clock\": 1671,\n        \"score\": {\n          \"current\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": 4629,\n      \"date\": \"2002-10-17T09:34:40.579Z\",\n      \"league\": {\n        \"id\": 9396,\n        \"name\": \"string\",\n        \"logo\": \"string\",\n        \"season\": 4311,\n        \"country\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        }\n      },\n      \"homeTeam\": {\n        \"id\": 6829,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"awayTeam\": {\n        \"id\": 9664,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"state\": {\n        \"description\": \"string\",\n        \"clock\": 8322,\n        \"score\": {\n          \"current\": \"string\"\n        }\n      }\n    }\n  ],\n  \"plan\": {\n    \"tier\": \"string\",\n    \"requestLimit\": 2591,\n    \"requestCount\": 7957\n  },\n  \"pagination\": {\n    \"limit\": 9790,\n    \"offset\": 4738,\n    \"total\": 5171\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c0c1bf2-a526-4691-aa89-8e47c17a6089",
+          "name": "Get a football match by ID",
+          "request": {
+            "name": "Get a football match by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "matches",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77b8db32-790d-4dcf-9a4c-2a962c8dc8cc",
+              "name": "A match.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "matches",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6761,\n  \"date\": \"2012-07-05T16:45:03.424Z\",\n  \"league\": {\n    \"id\": 7138,\n    \"name\": \"string\",\n    \"logo\": \"string\",\n    \"season\": 7602,\n    \"country\": {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"logo\": \"string\"\n    }\n  },\n  \"homeTeam\": {\n    \"id\": 8762,\n    \"name\": \"string\",\n    \"logo\": \"string\"\n  },\n  \"awayTeam\": {\n    \"id\": 3312,\n    \"name\": \"string\",\n    \"logo\": \"string\"\n  },\n  \"state\": {\n    \"description\": \"string\",\n    \"clock\": 8025,\n    \"score\": {\n      \"current\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4f25b5e-9fa4-4730-980d-669cfaa4eb2e",
+          "name": "Get the last five games for a team",
+          "request": {
+            "name": "Get the last five games for a team",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "last-five-games"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "teamId",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4fb8318-c99a-450a-a473-b5d82737cf8a",
+              "name": "A list of recent matches.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "last-five-games"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "teamId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 7283,\n      \"date\": \"1978-08-03T17:50:15.813Z\",\n      \"league\": {\n        \"id\": 9760,\n        \"name\": \"string\",\n        \"logo\": \"string\",\n        \"season\": 2397,\n        \"country\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        }\n      },\n      \"homeTeam\": {\n        \"id\": 6915,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"awayTeam\": {\n        \"id\": 2366,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"state\": {\n        \"description\": \"string\",\n        \"clock\": 7381,\n        \"score\": {\n          \"current\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": 3428,\n      \"date\": \"1947-10-15T19:29:57.062Z\",\n      \"league\": {\n        \"id\": 8951,\n        \"name\": \"string\",\n        \"logo\": \"string\",\n        \"season\": 6316,\n        \"country\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        }\n      },\n      \"homeTeam\": {\n        \"id\": 327,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"awayTeam\": {\n        \"id\": 2700,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"state\": {\n        \"description\": \"string\",\n        \"clock\": 346,\n        \"score\": {\n          \"current\": \"string\"\n        }\n      }\n    }\n  ],\n  \"plan\": {\n    \"tier\": \"string\",\n    \"requestLimit\": 3081,\n    \"requestCount\": 4273\n  },\n  \"pagination\": {\n    \"limit\": 442,\n    \"offset\": 8390,\n    \"total\": 95\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42d079d1-4c32-4e90-91f6-b783ba0ac628",
+          "name": "Get head-to-head records between two teams",
+          "request": {
+            "name": "Get head-to-head records between two teams",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "head-2-head"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "teamIdOne",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "teamIdTwo",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e92df251-1ba9-4de4-958b-cc9c46fc3c0e",
+              "name": "Head-to-head records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "head-2-head"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "teamIdOne",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "teamIdTwo",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 7283,\n      \"date\": \"1978-08-03T17:50:15.813Z\",\n      \"league\": {\n        \"id\": 9760,\n        \"name\": \"string\",\n        \"logo\": \"string\",\n        \"season\": 2397,\n        \"country\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        }\n      },\n      \"homeTeam\": {\n        \"id\": 6915,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"awayTeam\": {\n        \"id\": 2366,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"state\": {\n        \"description\": \"string\",\n        \"clock\": 7381,\n        \"score\": {\n          \"current\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": 3428,\n      \"date\": \"1947-10-15T19:29:57.062Z\",\n      \"league\": {\n        \"id\": 8951,\n        \"name\": \"string\",\n        \"logo\": \"string\",\n        \"season\": 6316,\n        \"country\": {\n          \"code\": \"string\",\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        }\n      },\n      \"homeTeam\": {\n        \"id\": 327,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"awayTeam\": {\n        \"id\": 2700,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"state\": {\n        \"description\": \"string\",\n        \"clock\": 346,\n        \"score\": {\n          \"current\": \"string\"\n        }\n      }\n    }\n  ],\n  \"plan\": {\n    \"tier\": \"string\",\n    \"requestLimit\": 3081,\n    \"requestCount\": 4273\n  },\n  \"pagination\": {\n    \"limit\": 442,\n    \"offset\": 8390,\n    \"total\": 95\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33813bc3-bb50-4613-9d3d-71c660fd16cf",
+          "name": "Get lineups for a match",
+          "request": {
+            "name": "Get lineups for a match",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "lineups",
+                ":matchId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "matchId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed8d99b7-23c7-4455-8941-4b62bb9d70d1",
+              "name": "Match lineups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "lineups",
+                    ":matchId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "matchId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"matchId\": 2795,\n  \"homeTeam\": {\n    \"formation\": \"string\",\n    \"startingXI\": [\n      {\n        \"id\": 5641,\n        \"name\": \"string\",\n        \"number\": 3903,\n        \"position\": \"string\"\n      },\n      {\n        \"id\": 6135,\n        \"name\": \"string\",\n        \"number\": 2666,\n        \"position\": \"string\"\n      }\n    ],\n    \"substitutes\": [\n      {\n        \"id\": 8482,\n        \"name\": \"string\",\n        \"number\": 1202,\n        \"position\": \"string\"\n      },\n      {\n        \"id\": 331,\n        \"name\": \"string\",\n        \"number\": 3514,\n        \"position\": \"string\"\n      }\n    ]\n  },\n  \"awayTeam\": {\n    \"formation\": \"string\",\n    \"startingXI\": [\n      {\n        \"id\": 9001,\n        \"name\": \"string\",\n        \"number\": 7140,\n        \"position\": \"string\"\n      },\n      {\n        \"id\": 5498,\n        \"name\": \"string\",\n        \"number\": 1034,\n        \"position\": \"string\"\n      }\n    ],\n    \"substitutes\": [\n      {\n        \"id\": 5916,\n        \"name\": \"string\",\n        \"number\": 3729,\n        \"position\": \"string\"\n      },\n      {\n        \"id\": 1101,\n        \"name\": \"string\",\n        \"number\": 3876,\n        \"position\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66483089-a2d4-41de-8e9e-355250a3f658",
+          "name": "Get live events for a match",
+          "request": {
+            "name": "Get live events for a match",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "events",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "90d5b504-5110-4624-9d1d-d8ae3ea8e054",
+              "name": "Live events.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "events",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"time\": 2327,\n      \"type\": \"string\",\n      \"team\": {\n        \"id\": 325,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"player\": {\n        \"id\": 917,\n        \"name\": \"string\",\n        \"number\": 1813,\n        \"position\": \"string\"\n      }\n    },\n    {\n      \"time\": 9978,\n      \"type\": \"string\",\n      \"team\": {\n        \"id\": 4036,\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      },\n      \"player\": {\n        \"id\": 8229,\n        \"name\": \"string\",\n        \"number\": 180,\n        \"position\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sports.highlightly.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-rapidapi-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "81bc122d-458c-42d6-abf7-0b45c49a85e9",
+    "name": "Highlightly Sports Catalog Matches API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.\n\nContact Support:\n Name: Highlightly",
+      "type": "text/plain"
+    }
+  }
+}

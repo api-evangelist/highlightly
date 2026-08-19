@@ -1,0 +1,148 @@
+{
+  "item": [
+    {
+      "id": "8509df17-41da-4d1d-aeb7-a4948b870ea7",
+      "name": "Standings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b86b3845-7d8a-40d7-a289-3bf462fbacea",
+          "name": "Get football league standings",
+          "request": {
+            "name": "Get football league standings",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "standings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "leagueId",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "season",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ea81cda-1910-44f7-9915-01fed1fd78f3",
+              "name": "League standings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "standings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "leagueId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "season",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"league\": {\n    \"id\": 5264,\n    \"name\": \"string\",\n    \"logo\": \"string\",\n    \"season\": 2985,\n    \"country\": {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"logo\": \"string\"\n    }\n  },\n  \"groups\": [\n    {\n      \"name\": \"string\",\n      \"standings\": [\n        {\n          \"position\": 353,\n          \"team\": {\n            \"id\": 4191,\n            \"name\": \"string\",\n            \"logo\": \"string\"\n          },\n          \"points\": 731,\n          \"played\": 8704,\n          \"won\": 9324,\n          \"drawn\": 9844,\n          \"lost\": 8540\n        },\n        {\n          \"position\": 1733,\n          \"team\": {\n            \"id\": 9932,\n            \"name\": \"string\",\n            \"logo\": \"string\"\n          },\n          \"points\": 8993,\n          \"played\": 9911,\n          \"won\": 3821,\n          \"drawn\": 6583,\n          \"lost\": 2497\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"standings\": [\n        {\n          \"position\": 5183,\n          \"team\": {\n            \"id\": 9569,\n            \"name\": \"string\",\n            \"logo\": \"string\"\n          },\n          \"points\": 3082,\n          \"played\": 9325,\n          \"won\": 3221,\n          \"drawn\": 2649,\n          \"lost\": 3234\n        },\n        {\n          \"position\": 9300,\n          \"team\": {\n            \"id\": 1098,\n            \"name\": \"string\",\n            \"logo\": \"string\"\n          },\n          \"points\": 5497,\n          \"played\": 5259,\n          \"won\": 8987,\n          \"drawn\": 3471,\n          \"lost\": 68\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sports.highlightly.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-rapidapi-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3b0a0893-07a0-4921-81a1-8da9505115b8",
+    "name": "Highlightly Sports Catalog Standings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.\n\nContact Support:\n Name: Highlightly",
+      "type": "text/plain"
+    }
+  }
+}

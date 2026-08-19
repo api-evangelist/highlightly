@@ -1,0 +1,199 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Highlightly Sports Catalog Matches API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-rapidapi-key",
+      "value": "{{x-rapidapi-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Matches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List football matches and fixtures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/matches",
+            "params": [
+              {
+                "name": "leagueName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "leagueId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "homeTeamId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "awayTeamId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "homeTeamName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "awayTeamName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "countryName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List football matches and fixtures"
+        },
+        {
+          "info": {
+            "name": "Get a football match by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/matches/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a football match by ID"
+        },
+        {
+          "info": {
+            "name": "Get the last five games for a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/last-five-games",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the last five games for a team"
+        },
+        {
+          "info": {
+            "name": "Get head-to-head records between two teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/head-2-head",
+            "params": [
+              {
+                "name": "teamIdOne",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "teamIdTwo",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get head-to-head records between two teams"
+        },
+        {
+          "info": {
+            "name": "Get lineups for a match",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/lineups/:matchId",
+            "params": [
+              {
+                "name": "matchId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get lineups for a match"
+        },
+        {
+          "info": {
+            "name": "Get live events for a match",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/events/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get live events for a match"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

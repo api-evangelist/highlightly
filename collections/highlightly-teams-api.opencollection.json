@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Highlightly Sports Catalog Teams API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-rapidapi-key",
+      "value": "{{x-rapidapi-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List football teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/teams",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List football teams"
+        },
+        {
+          "info": {
+            "name": "Get a football team by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a football team by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

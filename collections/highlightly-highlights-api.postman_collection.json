@@ -1,0 +1,446 @@
+{
+  "item": [
+    {
+      "id": "724486f0-a554-4c53-b6e6-7b8ebda67e50",
+      "name": "Highlights",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "794120b9-740c-4d5c-b910-d1a0f2987f4e",
+          "name": "List football highlight clips",
+          "request": {
+            "name": "List football highlight clips",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "highlights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "countryName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "leagueName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "leagueId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "season",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "matchId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "homeTeamId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "awayTeamId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "homeTeamName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "awayTeamName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd39ccd2-ea78-4df0-8f62-e94e17ec614c",
+              "name": "A list of highlights.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "highlights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "leagueName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "leagueId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "season",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "matchId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "homeTeamId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "awayTeamId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "homeTeamName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "awayTeamName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 6949,\n      \"title\": \"string\",\n      \"type\": \"string\",\n      \"url\": \"string\",\n      \"imgUrl\": \"string\",\n      \"match\": {\n        \"id\": 3655,\n        \"date\": \"2021-08-03T18:24:59.276Z\",\n        \"league\": {\n          \"id\": 2180,\n          \"name\": \"string\",\n          \"logo\": \"string\",\n          \"season\": 9778,\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"logo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"homeTeam\": {\n          \"id\": 8922,\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        },\n        \"awayTeam\": {\n          \"id\": 1210,\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        },\n        \"state\": {\n          \"description\": \"string\",\n          \"clock\": 8134,\n          \"score\": {\n            \"current\": \"string\"\n          }\n        }\n      }\n    },\n    {\n      \"id\": 6392,\n      \"title\": \"string\",\n      \"type\": \"string\",\n      \"url\": \"string\",\n      \"imgUrl\": \"string\",\n      \"match\": {\n        \"id\": 7017,\n        \"date\": \"2025-05-10T05:09:37.395Z\",\n        \"league\": {\n          \"id\": 4309,\n          \"name\": \"string\",\n          \"logo\": \"string\",\n          \"season\": 5437,\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"logo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"homeTeam\": {\n          \"id\": 5247,\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        },\n        \"awayTeam\": {\n          \"id\": 9890,\n          \"name\": \"string\",\n          \"logo\": \"string\"\n        },\n        \"state\": {\n          \"description\": \"string\",\n          \"clock\": 9755,\n          \"score\": {\n            \"current\": \"string\"\n          }\n        }\n      }\n    }\n  ],\n  \"plan\": {\n    \"tier\": \"string\",\n    \"requestLimit\": 8723,\n    \"requestCount\": 7448\n  },\n  \"pagination\": {\n    \"limit\": 7530,\n    \"offset\": 6013,\n    \"total\": 4993\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8cb120c0-9ef7-4bbb-b2e6-4807f98d99c5",
+          "name": "Get a football highlight by ID",
+          "request": {
+            "name": "Get a football highlight by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "highlights",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3150a38f-6503-46c2-893d-653d80c5456e",
+              "name": "A highlight.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "highlights",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2513,\n  \"title\": \"string\",\n  \"type\": \"string\",\n  \"url\": \"string\",\n  \"imgUrl\": \"string\",\n  \"match\": {\n    \"id\": 9470,\n    \"date\": \"1993-11-12T03:36:40.731Z\",\n    \"league\": {\n      \"id\": 6246,\n      \"name\": \"string\",\n      \"logo\": \"string\",\n      \"season\": 4988,\n      \"country\": {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"logo\": \"string\"\n      }\n    },\n    \"homeTeam\": {\n      \"id\": 6671,\n      \"name\": \"string\",\n      \"logo\": \"string\"\n    },\n    \"awayTeam\": {\n      \"id\": 486,\n      \"name\": \"string\",\n      \"logo\": \"string\"\n    },\n    \"state\": {\n      \"description\": \"string\",\n      \"clock\": 1861,\n      \"score\": {\n        \"current\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f497ade-3985-490c-8b39-2f8fcb625d1b",
+          "name": "Get geo restrictions for a football highlight",
+          "request": {
+            "name": "Get geo restrictions for a football highlight",
+            "description": {},
+            "url": {
+              "path": [
+                "football",
+                "highlights",
+                "geo-restrictions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ee213a2-0700-4232-9bc4-53d3a59d02c7",
+              "name": "Geo restriction details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "football",
+                    "highlights",
+                    "geo-restrictions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-rapidapi-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"highlightId\": 9009,\n  \"blockedCountries\": [\n    \"string\",\n    \"string\"\n  ],\n  \"allowedCountries\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sports.highlightly.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-rapidapi-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "19ca2234-b8d3-416f-a1ef-818556de8da8",
+    "name": "Highlightly Sports Catalog Highlights API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.\n\nContact Support:\n Name: Highlightly",
+      "type": "text/plain"
+    }
+  }
+}

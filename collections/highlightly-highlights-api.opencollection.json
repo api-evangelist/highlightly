@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Highlightly Sports Catalog Highlights API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-rapidapi-key",
+      "value": "{{x-rapidapi-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Highlights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List football highlight clips",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/highlights",
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "countryName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "leagueName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "leagueId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "matchId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "homeTeamId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "awayTeamId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "homeTeamName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "awayTeamName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List football highlight clips"
+        },
+        {
+          "info": {
+            "name": "Get a football highlight by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/highlights/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a football highlight by ID"
+        },
+        {
+          "info": {
+            "name": "Get geo restrictions for a football highlight",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sports.highlightly.net/football/highlights/geo-restrictions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get geo restrictions for a football highlight"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
