@@ -7,6 +7,18 @@ description: Highlightly is a real-time sports data and highlights API covering 
   handball across 950+ leagues. Its REST APIs serve live scores, matches, standings,
   team and player statistics, head-to-head records, odds, and on-demand video highlight
   clips, available directly via highlightly.net hosts or through RapidAPI.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: open
