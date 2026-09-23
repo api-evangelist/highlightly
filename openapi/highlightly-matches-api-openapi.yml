@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Highlightly Sports Catalog Matches API
-  description: Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.
+  title: Highlightly Sports Matches API
+  description: Real-time sports data and highlights API from Highlightly.
   contact:
     name: Highlightly
     url: https://highlightly.net
@@ -183,15 +183,6 @@ paths:
                 $ref: '#/components/schemas/EventList'
 components:
   schemas:
-    Country:
-      type: object
-      properties:
-        code:
-          type: string
-        name:
-          type: string
-        logo:
-          type: string
     Event:
       type: object
       properties:
@@ -203,28 +194,6 @@ components:
           $ref: '#/components/schemas/Team'
         player:
           $ref: '#/components/schemas/Player'
-    MatchList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Match'
-        plan:
-          $ref: '#/components/schemas/PlanMeta'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Player:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        number:
-          type: integer
-        position:
-          type: string
     Lineup:
       type: object
       properties:
@@ -238,40 +207,30 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Player'
-    Lineups:
+    Player:
       type: object
       properties:
-        matchId:
+        id:
           type: integer
-        homeTeam:
-          $ref: '#/components/schemas/Lineup'
-        awayTeam:
-          $ref: '#/components/schemas/Lineup'
-    EventList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-    PlanMeta:
-      type: object
-      properties:
-        tier:
+        name:
           type: string
-        requestLimit:
+        number:
           type: integer
-        requestCount:
-          type: integer
-    Pagination:
+        position:
+          type: string
+    League:
       type: object
       properties:
-        limit:
+        id:
           type: integer
-        offset:
+        name:
+          type: string
+        logo:
+          type: string
+        season:
           type: integer
-        total:
-          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
     Team:
       type: object
       properties:
@@ -281,6 +240,35 @@ components:
           type: string
         logo:
           type: string
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
+          type: integer
+    MatchList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Match'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Match:
       type: object
       properties:
@@ -307,19 +295,31 @@ components:
               properties:
                 current:
                   type: string
-    League:
+    Lineups:
       type: object
       properties:
-        id:
+        matchId:
           type: integer
-        name:
-          type: string
-        logo:
-          type: string
-        season:
+        homeTeam:
+          $ref: '#/components/schemas/Lineup'
+        awayTeam:
+          $ref: '#/components/schemas/Lineup'
+    Pagination:
+      type: object
+      properties:
+        limit:
           type: integer
-        country:
-          $ref: '#/components/schemas/Country'
+        offset:
+          type: integer
+        total:
+          type: integer
+    EventList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

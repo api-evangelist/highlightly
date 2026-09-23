@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Highlightly Sports Catalog Odds API
-  description: Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.
+  title: Highlightly Sports Odds API
+  description: Real-time sports data and highlights API from Highlightly.
   contact:
     name: Highlightly
     url: https://highlightly.net
@@ -116,6 +116,35 @@ paths:
                 $ref: '#/components/schemas/OddsList'
 components:
   schemas:
+    Bookmaker:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
     Country:
       type: object
       properties:
@@ -125,6 +154,37 @@ components:
           type: string
         logo:
           type: string
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
+          type: integer
+    BookmakerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bookmaker'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    OddsList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Odds'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Odds:
       type: object
       properties:
@@ -148,55 +208,6 @@ components:
                       type: string
                     value:
                       type: string
-    BookmakerList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bookmaker'
-        plan:
-          $ref: '#/components/schemas/PlanMeta'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    OddsList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Odds'
-        plan:
-          $ref: '#/components/schemas/PlanMeta'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    PlanMeta:
-      type: object
-      properties:
-        tier:
-          type: string
-        requestLimit:
-          type: integer
-        requestCount:
-          type: integer
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
     Match:
       type: object
       properties:
@@ -223,26 +234,15 @@ components:
               properties:
                 current:
                   type: string
-    League:
+    Pagination:
       type: object
       properties:
-        id:
+        limit:
           type: integer
-        name:
-          type: string
-        logo:
-          type: string
-        season:
+        offset:
           type: integer
-        country:
-          $ref: '#/components/schemas/Country'
-    Bookmaker:
-      type: object
-      properties:
-        id:
+        total:
           type: integer
-        name:
-          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

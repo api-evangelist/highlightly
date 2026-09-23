@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Highlightly Sports Catalog Teams API
-  description: Real-time sports data and highlights API from Highlightly. Provides live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips across football, basketball, and other sports. This document models the All Sports API surface, where each documented resource is namespaced under a sport path segment (for example /football/matches). The same resources are also available on per-sport hosts such as https://soccer.highlightly.net and https://basketball.highlightly.net (without the sport path prefix) and via RapidAPI.
+  title: Highlightly Sports Teams API
+  description: Real-time sports data and highlights API from Highlightly.
   contact:
     name: Highlightly
     url: https://highlightly.net
@@ -65,24 +65,6 @@ paths:
                 $ref: '#/components/schemas/Team'
 components:
   schemas:
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
     PlanMeta:
       type: object
       properties:
@@ -91,6 +73,15 @@ components:
         requestLimit:
           type: integer
         requestCount:
+          type: integer
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
           type: integer
     TeamList:
       type: object
@@ -103,6 +94,15 @@ components:
           $ref: '#/components/schemas/PlanMeta'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

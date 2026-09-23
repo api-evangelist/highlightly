@@ -1,13 +1,7 @@
 {
   "provider": "highlightly",
   "sources": [
-    "highlightly-catalog-api-openapi.yml",
-    "highlightly-highlights-api-openapi.yml",
-    "highlightly-matches-api-openapi.yml",
-    "highlightly-odds-api-openapi.yml",
-    "highlightly-standings-api-openapi.yml",
-    "highlightly-statistics-api-openapi.yml",
-    "highlightly-teams-api-openapi.yml"
+    "_original/highlightly-openapi.yml"
   ],
   "outputs": [
     "highlightly-catalog-api-openapi.yml",
@@ -21,6 +15,25 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "highlightly-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "highlightly-openapi.yml: declared missing tag: Catalog",
+    "highlightly-openapi.yml: declared missing tag: Highlights",
+    "highlightly-openapi.yml: declared missing tag: Matches",
+    "highlightly-openapi.yml: declared missing tag: Odds",
+    "highlightly-openapi.yml: declared missing tag: Standings",
+    "highlightly-openapi.yml: declared missing tag: Statistics",
+    "highlightly-openapi.yml: declared missing tag: Teams",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "highlightly-catalog-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "highlightly-highlights-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "highlightly-matches-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "highlightly-odds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "highlightly-standings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "highlightly-statistics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "highlightly-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
