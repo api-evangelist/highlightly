@@ -183,54 +183,6 @@ paths:
                 $ref: '#/components/schemas/EventList'
 components:
   schemas:
-    Event:
-      type: object
-      properties:
-        time:
-          type: integer
-        type:
-          type: string
-        team:
-          $ref: '#/components/schemas/Team'
-        player:
-          $ref: '#/components/schemas/Player'
-    Lineup:
-      type: object
-      properties:
-        formation:
-          type: string
-        startingXI:
-          type: array
-          items:
-            $ref: '#/components/schemas/Player'
-        substitutes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Player'
-    Player:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        number:
-          type: integer
-        position:
-          type: string
-    League:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-        season:
-          type: integer
-        country:
-          $ref: '#/components/schemas/Country'
     Team:
       type: object
       properties:
@@ -249,6 +201,17 @@ components:
           type: string
         logo:
           type: string
+    Event:
+      type: object
+      properties:
+        time:
+          type: integer
+        type:
+          type: string
+        team:
+          $ref: '#/components/schemas/Team'
+        player:
+          $ref: '#/components/schemas/Player'
     PlanMeta:
       type: object
       properties:
@@ -258,17 +221,17 @@ components:
           type: integer
         requestCount:
           type: integer
-    MatchList:
+    Player:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Match'
-        plan:
-          $ref: '#/components/schemas/PlanMeta'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
+        id:
+          type: integer
+        name:
+          type: string
+        number:
+          type: integer
+        position:
+          type: string
     Match:
       type: object
       properties:
@@ -295,6 +258,43 @@ components:
               properties:
                 current:
                   type: string
+    MatchList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Match'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Lineup:
+      type: object
+      properties:
+        formation:
+          type: string
+        startingXI:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+        substitutes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
     Lineups:
       type: object
       properties:
@@ -304,6 +304,13 @@ components:
           $ref: '#/components/schemas/Lineup'
         awayTeam:
           $ref: '#/components/schemas/Lineup'
+    EventList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
     Pagination:
       type: object
       properties:
@@ -313,13 +320,6 @@ components:
           type: integer
         total:
           type: integer
-    EventList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

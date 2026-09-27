@@ -125,32 +125,6 @@ paths:
                 $ref: '#/components/schemas/GeoRestriction'
 components:
   schemas:
-    GeoRestriction:
-      type: object
-      properties:
-        highlightId:
-          type: integer
-        blockedCountries:
-          type: array
-          items:
-            type: string
-        allowedCountries:
-          type: array
-          items:
-            type: string
-    League:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-        season:
-          type: integer
-        country:
-          $ref: '#/components/schemas/Country'
     Team:
       type: object
       properties:
@@ -169,6 +143,17 @@ components:
           type: string
         logo:
           type: string
+    HighlightList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Highlight'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     PlanMeta:
       type: object
       properties:
@@ -178,21 +163,6 @@ components:
           type: integer
         requestCount:
           type: integer
-    Highlight:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        type:
-          type: string
-        url:
-          type: string
-        imgUrl:
-          type: string
-        match:
-          $ref: '#/components/schemas/Match'
     Match:
       type: object
       properties:
@@ -219,6 +189,47 @@ components:
               properties:
                 current:
                   type: string
+    GeoRestriction:
+      type: object
+      properties:
+        highlightId:
+          type: integer
+        blockedCountries:
+          type: array
+          items:
+            type: string
+        allowedCountries:
+          type: array
+          items:
+            type: string
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
+    Highlight:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+        imgUrl:
+          type: string
+        match:
+          $ref: '#/components/schemas/Match'
     Pagination:
       type: object
       properties:
@@ -228,17 +239,6 @@ components:
           type: integer
         total:
           type: integer
-    HighlightList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Highlight'
-        plan:
-          $ref: '#/components/schemas/PlanMeta'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

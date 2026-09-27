@@ -110,26 +110,6 @@ paths:
                 $ref: '#/components/schemas/League'
 components:
   schemas:
-    CountryList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Country'
-    League:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-        season:
-          type: integer
-        country:
-          $ref: '#/components/schemas/Country'
     Country:
       type: object
       properties:
@@ -139,6 +119,13 @@ components:
           type: string
         logo:
           type: string
+    CountryList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
     PlanMeta:
       type: object
       properties:
@@ -159,6 +146,19 @@ components:
           $ref: '#/components/schemas/PlanMeta'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
     Pagination:
       type: object
       properties:

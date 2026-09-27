@@ -116,40 +116,31 @@ paths:
                 $ref: '#/components/schemas/OddsList'
 components:
   schemas:
-    Bookmaker:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    League:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-        season:
-          type: integer
-        country:
-          $ref: '#/components/schemas/Country'
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
     Country:
       type: object
       properties:
         code:
           type: string
+        name:
+          type: string
+        logo:
+          type: string
+    BookmakerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bookmaker'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
         name:
           type: string
         logo:
@@ -163,17 +154,6 @@ components:
           type: integer
         requestCount:
           type: integer
-    BookmakerList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bookmaker'
-        plan:
-          $ref: '#/components/schemas/PlanMeta'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     OddsList:
       type: object
       properties:
@@ -185,29 +165,6 @@ components:
           $ref: '#/components/schemas/PlanMeta'
         pagination:
           $ref: '#/components/schemas/Pagination'
-    Odds:
-      type: object
-      properties:
-        match:
-          $ref: '#/components/schemas/Match'
-        bookmaker:
-          $ref: '#/components/schemas/Bookmaker'
-        markets:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              odds:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    label:
-                      type: string
-                    value:
-                      type: string
     Match:
       type: object
       properties:
@@ -234,6 +191,49 @@ components:
               properties:
                 current:
                   type: string
+    Bookmaker:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
+    Odds:
+      type: object
+      properties:
+        match:
+          $ref: '#/components/schemas/Match'
+        bookmaker:
+          $ref: '#/components/schemas/Bookmaker'
+        markets:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              odds:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    label:
+                      type: string
+                    value:
+                      type: string
     Pagination:
       type: object
       properties:

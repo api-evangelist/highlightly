@@ -74,15 +74,15 @@ components:
           type: integer
         requestCount:
           type: integer
-    Pagination:
+    Team:
       type: object
       properties:
-        limit:
+        id:
           type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
+        name:
+          type: string
+        logo:
+          type: string
     TeamList:
       type: object
       properties:
@@ -94,15 +94,15 @@ components:
           $ref: '#/components/schemas/PlanMeta'
         pagination:
           $ref: '#/components/schemas/Pagination'
-    Team:
+    Pagination:
       type: object
       properties:
-        id:
+        limit:
           type: integer
-        name:
-          type: string
-        logo:
-          type: string
+        offset:
+          type: integer
+        total:
+          type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
