@@ -126,14 +126,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Country'
-    PlanMeta:
+    Pagination:
       type: object
       properties:
-        tier:
-          type: string
-        requestLimit:
+        limit:
           type: integer
-        requestCount:
+        offset:
+          type: integer
+        total:
           type: integer
     LeagueList:
       type: object
@@ -159,14 +159,14 @@ components:
           type: integer
         country:
           $ref: '#/components/schemas/Country'
-    Pagination:
+    PlanMeta:
       type: object
       properties:
-        limit:
+        tier:
+          type: string
+        requestLimit:
           type: integer
-        offset:
-          type: integer
-        total:
+        requestCount:
           type: integer
   securitySchemes:
     ApiKeyAuth:

@@ -183,44 +183,6 @@ paths:
                 $ref: '#/components/schemas/EventList'
 components:
   schemas:
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-    Country:
-      type: object
-      properties:
-        code:
-          type: string
-        name:
-          type: string
-        logo:
-          type: string
-    Event:
-      type: object
-      properties:
-        time:
-          type: integer
-        type:
-          type: string
-        team:
-          $ref: '#/components/schemas/Team'
-        player:
-          $ref: '#/components/schemas/Player'
-    PlanMeta:
-      type: object
-      properties:
-        tier:
-          type: string
-        requestLimit:
-          type: integer
-        requestCount:
-          type: integer
     Player:
       type: object
       properties:
@@ -232,6 +194,53 @@ components:
           type: integer
         position:
           type: string
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
+    EventList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
     Match:
       type: object
       properties:
@@ -269,6 +278,35 @@ components:
           $ref: '#/components/schemas/PlanMeta'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
+          type: integer
+    Lineups:
+      type: object
+      properties:
+        matchId:
+          type: integer
+        homeTeam:
+          $ref: '#/components/schemas/Lineup'
+        awayTeam:
+          $ref: '#/components/schemas/Lineup'
+    Event:
+      type: object
+      properties:
+        time:
+          type: integer
+        type:
+          type: string
+        team:
+          $ref: '#/components/schemas/Team'
+        player:
+          $ref: '#/components/schemas/Player'
     Lineup:
       type: object
       properties:
@@ -282,44 +320,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Player'
-    League:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-        season:
-          type: integer
-        country:
-          $ref: '#/components/schemas/Country'
-    Lineups:
-      type: object
-      properties:
-        matchId:
-          type: integer
-        homeTeam:
-          $ref: '#/components/schemas/Lineup'
-        awayTeam:
-          $ref: '#/components/schemas/Lineup'
-    EventList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

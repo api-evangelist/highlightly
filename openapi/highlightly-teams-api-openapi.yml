@@ -65,24 +65,6 @@ paths:
                 $ref: '#/components/schemas/Team'
 components:
   schemas:
-    PlanMeta:
-      type: object
-      properties:
-        tier:
-          type: string
-        requestLimit:
-          type: integer
-        requestCount:
-          type: integer
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
     TeamList:
       type: object
       properties:
@@ -102,6 +84,24 @@ components:
         offset:
           type: integer
         total:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
           type: integer
   securitySchemes:
     ApiKeyAuth:

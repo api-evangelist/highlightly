@@ -128,6 +128,68 @@ paths:
                 $ref: '#/components/schemas/PlayerStatistics'
 components:
   schemas:
+    Player:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        number:
+          type: integer
+        position:
+          type: string
+    PlayerStatistics:
+      type: object
+      properties:
+        player:
+          $ref: '#/components/schemas/Player'
+        statistics:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+    TeamStatistics:
+      type: object
+      properties:
+        team:
+          $ref: '#/components/schemas/Team'
+        matchesPlayed:
+          type: integer
+        wins:
+          type: integer
+        draws:
+          type: integer
+        losses:
+          type: integer
+        goalsFor:
+          type: integer
+        goalsAgainst:
+          type: integer
+    PlayerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
     Team:
       type: object
       properties:
@@ -146,28 +208,6 @@ components:
           type: integer
         requestCount:
           type: integer
-    Player:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        number:
-          type: integer
-        position:
-          type: string
-    PlayerList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Player'
-        plan:
-          $ref: '#/components/schemas/PlanMeta'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     MatchStatistics:
       type: object
       properties:
@@ -189,46 +229,6 @@ components:
                       type: string
                     value:
                       type: string
-    TeamStatistics:
-      type: object
-      properties:
-        team:
-          $ref: '#/components/schemas/Team'
-        matchesPlayed:
-          type: integer
-        wins:
-          type: integer
-        draws:
-          type: integer
-        losses:
-          type: integer
-        goalsFor:
-          type: integer
-        goalsAgainst:
-          type: integer
-    PlayerStatistics:
-      type: object
-      properties:
-        player:
-          $ref: '#/components/schemas/Player'
-        statistics:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

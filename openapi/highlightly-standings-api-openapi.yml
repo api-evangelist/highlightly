@@ -40,6 +40,22 @@ paths:
                 $ref: '#/components/schemas/Standings'
 components:
   schemas:
+    Standings:
+      type: object
+      properties:
+        league:
+          $ref: '#/components/schemas/League'
+        groups:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              standings:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StandingRow'
     Country:
       type: object
       properties:
@@ -88,22 +104,6 @@ components:
           type: integer
         country:
           $ref: '#/components/schemas/Country'
-    Standings:
-      type: object
-      properties:
-        league:
-          $ref: '#/components/schemas/League'
-        groups:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              standings:
-                type: array
-                items:
-                  $ref: '#/components/schemas/StandingRow'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -125,35 +125,6 @@ components:
           type: string
         logo:
           type: string
-    BookmakerList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bookmaker'
-        plan:
-          $ref: '#/components/schemas/PlanMeta'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-    PlanMeta:
-      type: object
-      properties:
-        tier:
-          type: string
-        requestLimit:
-          type: integer
-        requestCount:
-          type: integer
     OddsList:
       type: object
       properties:
@@ -165,6 +136,48 @@ components:
           $ref: '#/components/schemas/PlanMeta'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+    BookmakerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bookmaker'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
     Match:
       type: object
       properties:
@@ -198,19 +211,15 @@ components:
           type: integer
         name:
           type: string
-    League:
+    PlanMeta:
       type: object
       properties:
-        id:
-          type: integer
-        name:
+        tier:
           type: string
-        logo:
-          type: string
-        season:
+        requestLimit:
           type: integer
-        country:
-          $ref: '#/components/schemas/Country'
+        requestCount:
+          type: integer
     Odds:
       type: object
       properties:
@@ -234,15 +243,6 @@ components:
                       type: string
                     value:
                       type: string
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

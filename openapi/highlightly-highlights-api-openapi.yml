@@ -125,20 +125,57 @@ paths:
                 $ref: '#/components/schemas/GeoRestriction'
 components:
   schemas:
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
     Country:
       type: object
       properties:
         code:
           type: string
+        name:
+          type: string
+        logo:
+          type: string
+    GeoRestriction:
+      type: object
+      properties:
+        highlightId:
+          type: integer
+        blockedCountries:
+          type: array
+          items:
+            type: string
+        allowedCountries:
+          type: array
+          items:
+            type: string
+    Highlight:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+        imgUrl:
+          type: string
+        match:
+          $ref: '#/components/schemas/Match'
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
         name:
           type: string
         logo:
@@ -154,15 +191,19 @@ components:
           $ref: '#/components/schemas/PlanMeta'
         pagination:
           $ref: '#/components/schemas/Pagination'
-    PlanMeta:
+    League:
       type: object
       properties:
-        tier:
+        id:
+          type: integer
+        name:
           type: string
-        requestLimit:
+        logo:
+          type: string
+        season:
           type: integer
-        requestCount:
-          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
     Match:
       type: object
       properties:
@@ -189,55 +230,14 @@ components:
               properties:
                 current:
                   type: string
-    GeoRestriction:
+    PlanMeta:
       type: object
       properties:
-        highlightId:
-          type: integer
-        blockedCountries:
-          type: array
-          items:
-            type: string
-        allowedCountries:
-          type: array
-          items:
-            type: string
-    League:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
+        tier:
           type: string
-        logo:
-          type: string
-        season:
+        requestLimit:
           type: integer
-        country:
-          $ref: '#/components/schemas/Country'
-    Highlight:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        type:
-          type: string
-        url:
-          type: string
-        imgUrl:
-          type: string
-        match:
-          $ref: '#/components/schemas/Match'
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
+        requestCount:
           type: integer
   securitySchemes:
     ApiKeyAuth:
