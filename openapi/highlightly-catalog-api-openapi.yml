@@ -110,15 +110,6 @@ paths:
                 $ref: '#/components/schemas/League'
 components:
   schemas:
-    Country:
-      type: object
-      properties:
-        code:
-          type: string
-        name:
-          type: string
-        logo:
-          type: string
     CountryList:
       type: object
       properties:
@@ -126,26 +117,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Country'
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
-    LeagueList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/League'
-        plan:
-          $ref: '#/components/schemas/PlanMeta'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     League:
       type: object
       properties:
@@ -159,6 +130,15 @@ components:
           type: integer
         country:
           $ref: '#/components/schemas/Country'
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
     PlanMeta:
       type: object
       properties:
@@ -168,6 +148,26 @@ components:
           type: integer
         requestCount:
           type: integer
+    LeagueList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/League'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        logo:
+          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

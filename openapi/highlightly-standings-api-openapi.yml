@@ -40,6 +40,45 @@ paths:
                 $ref: '#/components/schemas/Standings'
 components:
   schemas:
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+    League:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
+        season:
+          type: integer
+        country:
+          $ref: '#/components/schemas/Country'
+    StandingRow:
+      type: object
+      properties:
+        position:
+          type: integer
+        team:
+          $ref: '#/components/schemas/Team'
+        points:
+          type: integer
+        played:
+          type: integer
+        won:
+          type: integer
+        drawn:
+          type: integer
+        lost:
+          type: integer
     Standings:
       type: object
       properties:
@@ -65,45 +104,6 @@ components:
           type: string
         logo:
           type: string
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-    StandingRow:
-      type: object
-      properties:
-        position:
-          type: integer
-        team:
-          $ref: '#/components/schemas/Team'
-        points:
-          type: integer
-        played:
-          type: integer
-        won:
-          type: integer
-        drawn:
-          type: integer
-        lost:
-          type: integer
-    League:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-        season:
-          type: integer
-        country:
-          $ref: '#/components/schemas/Country'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

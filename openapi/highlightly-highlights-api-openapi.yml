@@ -125,6 +125,30 @@ paths:
                 $ref: '#/components/schemas/GeoRestriction'
 components:
   schemas:
+    Highlight:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+        imgUrl:
+          type: string
+        match:
+          $ref: '#/components/schemas/Match'
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        logo:
+          type: string
     Country:
       type: object
       properties:
@@ -147,50 +171,6 @@ components:
           type: array
           items:
             type: string
-    Highlight:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        type:
-          type: string
-        url:
-          type: string
-        imgUrl:
-          type: string
-        match:
-          $ref: '#/components/schemas/Match'
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        logo:
-          type: string
-    HighlightList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Highlight'
-        plan:
-          $ref: '#/components/schemas/PlanMeta'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     League:
       type: object
       properties:
@@ -204,6 +184,35 @@ components:
           type: integer
         country:
           $ref: '#/components/schemas/Country'
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    PlanMeta:
+      type: object
+      properties:
+        tier:
+          type: string
+        requestLimit:
+          type: integer
+        requestCount:
+          type: integer
+    HighlightList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Highlight'
+        plan:
+          $ref: '#/components/schemas/PlanMeta'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Match:
       type: object
       properties:
@@ -230,15 +239,6 @@ components:
               properties:
                 current:
                   type: string
-    PlanMeta:
-      type: object
-      properties:
-        tier:
-          type: string
-        requestLimit:
-          type: integer
-        requestCount:
-          type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
