@@ -1,0 +1,14 @@
+{
+  "repo": "highlightly",
+  "feeds": [
+    {
+      "source": "https://highlightly.net/blogs",
+      "feed_url": "https://highlightly.net/blogs",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-10-10T13:15:00Z"
+}
