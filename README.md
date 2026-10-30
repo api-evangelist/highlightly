@@ -1,4 +1,4 @@
-# Highlightly (highlightly)
+# Highlightly
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,159 +66,127 @@
 
 Highlightly is a real-time sports data and highlights API covering football, basketball, American football, hockey, baseball, cricket, rugby, volleyball, and handball across 950+ leagues. Its REST APIs serve live scores, matches, standings, team and player statistics, head-to-head records, odds, and on-demand video highlight clips, available directly via highlightly.net hosts or through RapidAPI.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/highlightly/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/highlightly/refs/heads/main/apis.yml)
+**Areas:** Sports · Sports Data · Live Scores · Odds · Highlights
 
-## Tags
+## Highlightly on APIs.io
 
-- Sports
-- Sports Data
-- Live Scores
-- Odds
-- Highlights
+Everything profiled for Highlightly is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/highlightly/](https://apis.io/providers/highlightly/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2026-06-25
-- **Modified:** 2026-06-25
+- [Highlightly Catalog API](https://apis.io/apis/highlightly/highlightly-catalog-api/) — The Catalog API from Highlightly — 4 operation(s) for catalog.
+- [Highlightly Highlights API](https://apis.io/apis/highlightly/highlightly-highlights-api/) — The Highlights API from Highlightly — 3 operation(s) for highlights.
+- [Highlightly Matches API](https://apis.io/apis/highlightly/highlightly-matches-api/) — The Matches API from Highlightly — 6 operation(s) for matches.
+- [Highlightly Odds API](https://apis.io/apis/highlightly/highlightly-odds-api/) — The Odds API from Highlightly — 3 operation(s) for odds.
+- [Highlightly Standings API](https://apis.io/apis/highlightly/highlightly-standings-api/) — The Standings API from Highlightly — 1 operation(s) for standings.
+- [Highlightly Statistics API](https://apis.io/apis/highlightly/highlightly-statistics-api/) — The Statistics API from Highlightly — 5 operation(s) for statistics.
+- [Highlightly Teams API](https://apis.io/apis/highlightly/highlightly-teams-api/) — The Teams API from Highlightly — 2 operation(s) for teams.
 
-## APIs
+### Published properties
 
-### Highlightly Matches & Fixtures API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-List and retrieve matches and fixtures per sport with filtering by league, date, season, and team, plus per-match lineups, live events, and head-to-head and last-five-games records.
+#### Agentic access (1)
 
-- **Human URL:** [https://highlightly.net/sport-api/documentation/](https://highlightly.net/sport-api/documentation/)
-- **Base URL:** `https://sports.highlightly.net`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Highlightly Agentic Access](https://apis.io/agentic-access/highlightly/highlightly-agentic-access/)
 
-- Matches
-- Fixtures
-- Sports
+#### Collections (8)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://highlightly.net/sport-api/documentation/)
-- [API Reference](https://highlightly.net/documentation/football/)
-- [OpenAPI](openapi/highlightly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/highlightly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/highlightly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Highlightly](https://apis.io/collections/highlightly/open-highlightly/)
+- [Highlightly Sports Catalog API](https://apis.io/collections/highlightly/open-highlightly-catalog-api/)
+- [Highlightly Sports Catalog Highlights API](https://apis.io/collections/highlightly/open-highlightly-highlights-api/)
+- [Highlightly Sports Catalog Matches API](https://apis.io/collections/highlightly/open-highlightly-matches-api/)
+- [Highlightly Sports Catalog Odds API](https://apis.io/collections/highlightly/open-highlightly-odds-api/)
+- [Highlightly Sports Catalog Standings API](https://apis.io/collections/highlightly/open-highlightly-standings-api/)
+- [Highlightly Sports Catalog Statistics API](https://apis.io/collections/highlightly/open-highlightly-statistics-api/)
+- [Highlightly Sports Catalog Teams API](https://apis.io/collections/highlightly/open-highlightly-teams-api/)
 
-### Highlightly Live Scores API
+#### Security (2)
 
-Real-time match state and live in-game events surfaced through the matches and events endpoints, with timezone-aware filtering by date and league.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://highlightly.net/sport-api/documentation/](https://highlightly.net/sport-api/documentation/)
-- **Base URL:** `https://sports.highlightly.net`
+- [Highlightly Authentication](https://apis.io/security/highlightly/highlightly-authentication/)
+- [Highlightly Domain Security](https://apis.io/security/highlightly/highlightly-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Live Scores
-- Real Time
-- Sports
+Published plans, tiers and prices.
 
-#### Properties
+- [Highlightly Plans Pricing](https://apis.io/plans/highlightly/highlightly-plans-pricing/)
 
-- [Documentation](https://highlightly.net/sport-api/documentation/)
-- [API Reference](https://highlightly.net/documentation/football/)
-- [OpenAPI](openapi/highlightly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/highlightly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/highlightly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Highlightly Standings API
+Published request limits.
 
-League table standings keyed by league and season, alongside country and league catalog endpoints with logos.
+- [Highlightly Rate Limits](https://apis.io/rate-limits/highlightly/highlightly-rate-limits/)
 
-- **Human URL:** [https://highlightly.net/sport-api/documentation/](https://highlightly.net/sport-api/documentation/)
-- **Base URL:** `https://sports.highlightly.net`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Standings
-- Leagues
-- Sports
+- [Highlightly Finops](https://apis.io/finops/highlightly/highlightly-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://highlightly.net/sport-api/documentation/)
-- [API Reference](https://highlightly.net/documentation/football/)
-- [OpenAPI](openapi/highlightly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/highlightly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/highlightly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Highlightly Statistics API
-
-Team and per-match statistics plus player summaries, player statistics, and box scores for detailed sports analytics.
-
-- **Human URL:** [https://highlightly.net/sport-api/documentation/](https://highlightly.net/sport-api/documentation/)
-- **Base URL:** `https://sports.highlightly.net`
-
-#### Tags
-
-- Statistics
-- Teams
-- Players
-
-#### Properties
-
-- [Documentation](https://highlightly.net/sport-api/documentation/)
-- [API Reference](https://highlightly.net/documentation/football/)
-- [OpenAPI](openapi/highlightly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/highlightly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/highlightly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Highlightly Odds API
-
-Pre-match and live betting odds filtered by match, league, bookmaker, and odds type, with a supporting bookmakers catalog.
-
-- **Human URL:** [https://highlightly.net/sport-api/documentation/](https://highlightly.net/sport-api/documentation/)
-- **Base URL:** `https://sports.highlightly.net`
-
-#### Tags
-
-- Odds
-- Betting
-- Bookmakers
-
-#### Properties
-
-- [Documentation](https://highlightly.net/sport-api/documentation/)
-- [API Reference](https://highlightly.net/documentation/football/)
-- [OpenAPI](openapi/highlightly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/highlightly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/highlightly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Highlightly Highlights API
-
-On-demand video highlight clips filtered by match, league, team, and date, including per-highlight metadata and a geo-restriction checker.
-
-- **Human URL:** [https://highlightly.net/sport-api/documentation/](https://highlightly.net/sport-api/documentation/)
-- **Base URL:** `https://sports.highlightly.net`
-
-#### Tags
-
-- Highlights
-- Video
-- Clips
-
-#### Properties
-
-- [Documentation](https://highlightly.net/sport-api/documentation/)
-- [API Reference](https://highlightly.net/documentation/football/)
-- [OpenAPI](openapi/highlightly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/highlightly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/highlightly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/highlightly)
 - [Website](https://highlightly.net/)
 - [Documentation](https://highlightly.net/sport-api/documentation/)
-- [Plans](plans/highlightly-plans-pricing.yml)
-- [Rate Limits](rate-limits/highlightly-rate-limits.yml)
-- [Fin Ops](finops/highlightly-finops.yml)
+- [Blog](https://highlightly.net/blogs)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 45.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 7.9 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/highlightly/](https://apis.io/providers/highlightly/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Highlightly: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/highlightly/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
